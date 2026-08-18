@@ -50,7 +50,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4 }}
-      className="card-hover-line group rounded-2xl bg-[#F4F4F1] dark:bg-[#1E1E1D] border border-neutral-200/80 dark:border-neutral-800/80 overflow-hidden flex flex-col justify-between cursor-pointer"
+      className="card-hover-line group rounded-2xl sm:rounded-3xl bg-[#F4F4F1] dark:bg-[#1E1E1D] border border-neutral-200/80 dark:border-neutral-800/80 overflow-hidden flex flex-col justify-between cursor-pointer"
     >
       <div>
         {/* Top Screenshot */}
@@ -58,29 +58,29 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <img
             src={project.image}
             alt={`${project.title} custom platform developed by Aryan Rathod`}
-            className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+            className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-103"
           />
         </div>
 
         {/* Card Body */}
-        <div className="p-6">
-          {/* Bold Black Title */}
+        <div className="p-4 sm:p-5">
+          {/* Title matching reference */}
           <Link href={`/projects/${project.slug}`}>
-            <h3 className="text-2xl font-extrabold text-neutral-900 dark:text-neutral-100 mb-3 tracking-tight">
+            <h3 className="text-lg sm:text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2.5 tracking-tight hover:opacity-80 transition-opacity">
               {project.title}
             </h3>
           </Link>
 
-          {/* Off-white Light Grey Feature Pills with Lucide SVG Icons matching screenshot */}
-          <div className="flex flex-wrap gap-2 mb-4">
-            {project.featureBadges?.map((badge, idx) => {
+          {/* Feature Badge Pills */}
+          <div className="flex flex-wrap gap-1.5 mb-3">
+            {project.featureBadges?.slice(0, 4).map((badge, idx) => {
               const IconComponent = iconMap[badge.icon] || Zap;
               return (
                 <span
                   key={idx}
-                  className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-[#EFEFEA] dark:bg-[#252523] text-neutral-800 dark:text-neutral-200 border border-neutral-300/70 dark:border-neutral-700/70 shadow-2xs flex items-center gap-1.5"
+                  className="px-2.5 py-1 rounded-lg sm:rounded-xl text-[11px] font-medium bg-[#EFEFEA] dark:bg-[#262624] text-neutral-800 dark:text-neutral-200 border border-neutral-300/70 dark:border-neutral-700/70 shadow-2xs flex items-center gap-1.5"
                 >
-                  <IconComponent className="w-3.5 h-3.5 text-neutral-500 dark:text-neutral-400 shrink-0" />
+                  <IconComponent className="w-3 h-3 text-neutral-500 dark:text-neutral-400 shrink-0" />
                   <span>{badge.label}</span>
                 </span>
               );
@@ -88,19 +88,19 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
 
           {/* Description */}
-          <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6 line-clamp-3">
+          <p className="text-[11px] sm:text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed mb-4 line-clamp-3">
             {project.description}
           </p>
         </div>
       </div>
 
       {/* Two Action Buttons side by side */}
-      <div className="px-6 pb-6 pt-0 grid grid-cols-2 gap-2.5">
+      <div className="px-4 sm:px-5 pb-4 sm:pb-5 pt-0 grid grid-cols-2 gap-2">
         <a
           href={project.githubUrl || `/projects/${project.slug}`}
           target={project.githubUrl ? "_blank" : "_self"}
           rel="noopener noreferrer"
-          className="py-2.5 px-3 rounded-xl text-xs font-bold bg-white dark:bg-neutral-900 border border-neutral-300/80 dark:border-neutral-700/80 text-neutral-900 dark:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors flex items-center justify-center gap-1.5 shadow-xs"
+          className="py-2 px-2.5 rounded-xl text-xs font-bold bg-white dark:bg-neutral-900 border border-neutral-300/80 dark:border-neutral-700/80 text-neutral-900 dark:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors flex items-center justify-center gap-1.5 shadow-2xs"
         >
           <Github className="w-3.5 h-3.5" />
           <span>GitHub</span>
@@ -110,7 +110,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           href={project.liveUrl || `/projects/${project.slug}`}
           target={project.liveUrl ? "_blank" : "_self"}
           rel="noopener noreferrer"
-          className="py-2.5 px-3 rounded-xl text-xs font-bold bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-colors flex items-center justify-center gap-1.5 shadow-sm"
+          className="py-2 px-2.5 rounded-xl text-xs font-bold bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-colors flex items-center justify-center gap-1.5 shadow-xs"
         >
           <ExternalLink className="w-3.5 h-3.5" />
           <span>Live Demo</span>
