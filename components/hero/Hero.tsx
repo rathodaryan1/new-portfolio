@@ -38,15 +38,15 @@ export function Hero() {
           {personal.title}
         </p>
 
-        {/* Founder Pill Badge with Optenary Logo Emblem instead of 4 dots */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold bg-[#F4F4F1] dark:bg-[#1E1E1D] text-neutral-800 dark:text-neutral-200 border border-neutral-300/50 dark:border-neutral-700/50 mb-6 sm:mb-8 shadow-xs max-w-full">
-          {/* Optenary Logo Icon */}
-          <div className="w-4 h-4 rounded-md bg-gradient-to-tr from-blue-600 to-emerald-500 flex items-center justify-center shrink-0 shadow-2xs">
-            <svg className="w-2.5 h-2.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-              <polygon points="12 2 2 7 12 12 22 7 12 2" />
-              <polyline points="2 17 12 22 22 17" />
-              <polyline points="2 12 12 17 22 12" />
-            </svg>
+        {/* Founder Pill Badge with Optenary Logo */}
+        <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full text-xs font-semibold bg-[#F4F4F1] dark:bg-[#1E1E1D] text-neutral-800 dark:text-neutral-200 border border-neutral-300/50 dark:border-neutral-700/50 mb-6 sm:mb-8 shadow-xs max-w-full">
+          {/* Optenary Logo Image */}
+          <div className="w-5 h-5 rounded-md overflow-hidden shrink-0 flex items-center justify-center">
+            <img
+              src="/optenary-logo.png"
+              alt="Optenary Logo"
+              className="w-full h-full object-cover"
+            />
           </div>
           <span className="truncate">{personal.founderBadge}</span>
         </div>

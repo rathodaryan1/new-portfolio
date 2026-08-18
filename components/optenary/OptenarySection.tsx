@@ -16,7 +16,11 @@ export function OptenarySection() {
         <div>
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 border border-neutral-200/80 dark:border-neutral-700/80 mb-6 shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-blue-500" />
+            <img
+              src="/optenary-logo.png"
+              alt="Optenary Logo"
+              className="w-4 h-4 rounded object-cover shrink-0"
+            />
             <span>FOUNDED &amp; LED BY ARYAN RATHOD</span>
           </div>
 
