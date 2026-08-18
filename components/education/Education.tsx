@@ -83,7 +83,7 @@ export function Education() {
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        {/* Header matching Image 5 */}
+        {/* Header */}
         <div className="mb-8">
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-neutral-900 dark:text-neutral-100 mb-2">
             Education
@@ -93,26 +93,26 @@ export function Education() {
           </p>
         </div>
 
-        {/* Layout matching Image 5: Left timeline tabs + Right detail panel */}
+        {/* Layout: Horizontal swipeable tabs on mobile, Left sidebar on desktop */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
-          {/* Left Sidebar Tabs matching Image 5 */}
-          <div className="space-y-2">
+          {/* Timeline Tabs: Horizontal scrollable on mobile, Vertical stack on desktop */}
+          <div className="flex md:flex-col overflow-x-auto md:overflow-visible gap-2 pb-2 md:pb-0 no-scrollbar">
             {educationTimeline.map((item) => {
               const isSelected = item.id === selectedId;
               return (
                 <button
                   key={item.id}
                   onClick={() => setSelectedId(item.id)}
-                  className={`w-full text-left p-4 rounded-2xl transition-all duration-200 ${
+                  className={`shrink-0 min-w-[140px] md:min-w-0 md:w-full text-left p-3.5 sm:p-4 rounded-2xl transition-all duration-200 ${
                     isSelected
-                      ? "bg-[#F4F4F1] dark:bg-[#1E1E1D] border-l-4 border-neutral-900 dark:border-white shadow-xs font-bold"
+                      ? "bg-[#F4F4F1] dark:bg-[#1E1E1D] border-b-2 md:border-b-0 md:border-l-4 border-neutral-900 dark:border-white shadow-xs font-bold"
                       : "hover:bg-neutral-100/60 dark:hover:bg-neutral-800/50 text-neutral-600 dark:text-neutral-400"
                   }`}
                 >
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-400 dark:text-neutral-500 block mb-0.5">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-400 dark:text-neutral-500 block mb-0.5 whitespace-nowrap">
                     {item.period}
                   </span>
-                  <p className="text-sm font-bold text-neutral-900 dark:text-neutral-100">
+                  <p className="text-sm font-bold text-neutral-900 dark:text-neutral-100 whitespace-nowrap md:whitespace-normal">
                     {item.shortTitle}
                   </p>
                 </button>
@@ -120,24 +120,24 @@ export function Education() {
             })}
           </div>
 
-          {/* Right Detail Card matching Image 5 */}
-          <div className="card-hover-line md:col-span-2 p-8 rounded-3xl bg-[#F4F4F1] dark:bg-[#1E1E1D] border border-neutral-200/70 dark:border-neutral-800/70 shadow-xs min-h-[300px] flex flex-col justify-between">
+          {/* Right/Bottom Detail Card matching Reference Screenshot */}
+          <div className="card-hover-line md:col-span-2 p-6 sm:p-8 rounded-3xl bg-[#F4F4F1] dark:bg-[#1E1E1D] border border-neutral-200/70 dark:border-neutral-800/70 shadow-xs min-h-[280px] flex flex-col justify-between">
             <div>
               <span className="text-xs font-bold text-neutral-400 dark:text-neutral-500 block mb-2">
                 {activeItem.period}
               </span>
-              <h3 className="text-2xl font-extrabold text-neutral-900 dark:text-neutral-100 mb-1">
+              <h3 className="text-xl sm:text-2xl font-extrabold text-neutral-900 dark:text-neutral-100 mb-1">
                 {activeItem.fullTitle}
               </h3>
-              <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-5">
+              <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-4 sm:mb-5">
                 {activeItem.organization}
               </p>
-              <p className="text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed mb-8">
+              <p className="text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed mb-6 sm:mb-8">
                 {activeItem.description}
               </p>
             </div>
 
-            {/* Colored Parenthesis Pills matching Image 5 */}
+            {/* Colored Parenthesis Pills */}
             <div>
               <h4 className="text-[10px] font-bold uppercase tracking-wider text-neutral-400 dark:text-neutral-500 mb-3">
                 CORE OBJECTIVES &amp; IMPACT
@@ -146,7 +146,7 @@ export function Education() {
                 {activeItem.tags.map((tag) => (
                   <span
                     key={tag.text}
-                    className={`px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 ${tag.accentClass}`}
+                    className={`px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 ${tag.accentClass}`}
                   >
                     ( {tag.text} )
                   </span>
