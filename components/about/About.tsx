@@ -1,121 +1,100 @@
 "use client";
 
-import { personal } from "@/data/personal";
-import { resumeUrl } from "@/data/social";
 import { motion } from "framer-motion";
-import { FileText } from "lucide-react";
+import { MapPin, GraduationCap, Code2, Rocket } from "lucide-react";
 
 export function About() {
   return (
-    <section id="about" className="py-12 sm:py-16 px-4 max-w-4xl mx-auto border-t border-neutral-200/60 dark:border-neutral-800/60">
+    <section id="about" className="py-16 px-4 max-w-5xl mx-auto border-t border-neutral-200/60 dark:border-neutral-800/60">
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        {/* Header matching Mobile Screenshot */}
-        <div className="mb-6 sm:mb-8">
-          <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-neutral-900 dark:text-neutral-100 mb-2">
-            About
+        {/* Section Header */}
+        <div className="mb-10">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-neutral-900 dark:text-neutral-100 mb-2">
+            About Me
           </h2>
-          <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-400">
-            Pursuing Diploma in Computer Engineering, building web applications, and studying software patterns.
+          <p className="text-xl sm:text-2xl font-bold text-neutral-700 dark:text-neutral-300">
+            I like turning ideas into working products.
           </p>
         </div>
 
-        {/* Narrative Paragraphs */}
-        <div className="space-y-4 sm:space-y-5 text-sm sm:text-base text-neutral-700 dark:text-neutral-300 leading-relaxed mb-8 sm:mb-10">
-          <p>
-            I am <strong className="font-semibold text-neutral-900 dark:text-neutral-100">Aryan Rathod</strong>, a <strong className="font-semibold text-neutral-900 dark:text-neutral-100">Diploma Computer Engineering</strong> student and <strong className="font-semibold text-neutral-900 dark:text-neutral-100">Full Stack Developer</strong> based in Ahmedabad, Gujarat, India. I specialize in engineering clean, fast, and responsive web applications using Next.js, React, TypeScript, Tailwind CSS, Supabase, and PostgreSQL.
-          </p>
-          <p>
-            Alongside modern web development and algorithms, I am the Founder &amp; CEO of <strong className="font-semibold text-neutral-900 dark:text-neutral-100">Optenary</strong>, where I take ambitious ideas from concept to production by building custom software products, e-commerce engines, and AI automation workflows.
-          </p>
-        </div>
-
-        {/* 4 Metadata Grid matching Mobile Screenshot */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 sm:gap-y-6 gap-x-12 mb-8 sm:mb-10">
-          <div>
-            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-neutral-400 dark:text-neutral-500 block mb-1">
-              LOCATION
-            </span>
-            <p className="text-sm sm:text-base font-semibold text-neutral-800 dark:text-neutral-200">
-              Ahmedabad, Gujarat
+        {/* Two-Column Editorial Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Left: Professional Introduction Narrative */}
+          <div className="lg:col-span-7 space-y-4 text-base text-neutral-600 dark:text-neutral-300 leading-relaxed">
+            <p>
+              I am <strong className="font-semibold text-neutral-900 dark:text-neutral-100">Aryan Rathod</strong>, a Computer Engineering student and Full Stack Developer based in Ahmedabad, Gujarat, India. I focus on building responsive web applications, custom e-commerce systems, and performant digital products.
+            </p>
+            <p>
+              My approach combines strong engineering fundamentals with modern technologies like Next.js, React, TypeScript, Supabase, and PostgreSQL. I care deeply about writing maintainable code, architecting reliable backends, and delivering seamless user interfaces.
+            </p>
+            <p>
+              Alongside engineering, I founded <strong className="font-semibold text-neutral-900 dark:text-neutral-100">Optenary</strong> to collaborate directly with businesses—turning ambitious product concepts into production-ready web platforms and automated workflows.
             </p>
           </div>
 
-          <div>
-            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-neutral-400 dark:text-neutral-500 block mb-1">
-              DEGREE
-            </span>
-            <p className="text-sm sm:text-base font-semibold text-neutral-800 dark:text-neutral-200">
-              Diploma Computer Engineering
-            </p>
-          </div>
-
-          <div>
-            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-neutral-400 dark:text-neutral-500 block mb-1">
-              FOCUS AREA
-            </span>
-            <p className="text-sm sm:text-base font-semibold text-neutral-800 dark:text-neutral-200">
-              Full Stack Development &amp; Custom Platforms
-            </p>
-          </div>
-
-          <div>
-            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-neutral-400 dark:text-neutral-500 block mb-1">
-              ROLE
-            </span>
-            <p className="text-sm sm:text-base font-semibold text-neutral-800 dark:text-neutral-200">
-              Founder &amp; CEO — Optenary
-            </p>
-          </div>
-        </div>
-
-        {/* Statistics Card matching Mobile Screenshot */}
-        <div className="card-hover-line p-5 sm:p-8 rounded-2xl bg-[#F4F4F1] dark:bg-[#1E1E1D] border border-neutral-200/70 dark:border-neutral-800/70 mb-8 shadow-xs">
-          <div className="grid grid-cols-3 text-center divide-x divide-neutral-300/50 dark:divide-neutral-700/50">
-            <div className="px-1">
-              <div className="text-2xl sm:text-4xl font-extrabold text-neutral-900 dark:text-neutral-100 mb-1">
-                5+
+          {/* Right: Compact Info Cards */}
+          <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3">
+            <div className="p-4 rounded-2xl bg-[#F4F4F1] dark:bg-[#1E1E1D] border border-neutral-200/80 dark:border-neutral-800/80 flex items-start gap-3.5 shadow-2xs">
+              <div className="p-2.5 rounded-xl bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white shrink-0 shadow-xs">
+                <MapPin className="w-4 h-4 text-blue-500" />
               </div>
-              <span className="text-[9px] sm:text-[11px] font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 block">
-                REAL PRODUCTS
-              </span>
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-400 dark:text-neutral-500 block mb-0.5">
+                  BASED IN
+                </span>
+                <p className="text-sm font-bold text-neutral-900 dark:text-neutral-100">
+                  Ahmedabad, Gujarat
+                </p>
+              </div>
             </div>
 
-            <div className="px-1">
-              <div className="text-2xl sm:text-4xl font-extrabold text-neutral-900 dark:text-neutral-100 mb-1">
-                100%
+            <div className="p-4 rounded-2xl bg-[#F4F4F1] dark:bg-[#1E1E1D] border border-neutral-200/80 dark:border-neutral-800/80 flex items-start gap-3.5 shadow-2xs">
+              <div className="p-2.5 rounded-xl bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white shrink-0 shadow-xs">
+                <GraduationCap className="w-4 h-4 text-emerald-500" />
               </div>
-              <span className="text-[9px] sm:text-[11px] font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 block">
-                CUSTOM ENGINE
-              </span>
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-400 dark:text-neutral-500 block mb-0.5">
+                  EDUCATION
+                </span>
+                <p className="text-sm font-bold text-neutral-900 dark:text-neutral-100">
+                  Diploma in Computer Engineering
+                </p>
+              </div>
             </div>
 
-            <div className="px-1">
-              <div className="text-2xl sm:text-4xl font-extrabold text-neutral-900 dark:text-neutral-100 mb-1">
-                2026
+            <div className="p-4 rounded-2xl bg-[#F4F4F1] dark:bg-[#1E1E1D] border border-neutral-200/80 dark:border-neutral-800/80 flex items-start gap-3.5 shadow-2xs">
+              <div className="p-2.5 rounded-xl bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white shrink-0 shadow-xs">
+                <Code2 className="w-4 h-4 text-purple-500" />
               </div>
-              <span className="text-[9px] sm:text-[11px] font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 block">
-                OPTENARY
-              </span>
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-400 dark:text-neutral-500 block mb-0.5">
+                  FOCUS
+                </span>
+                <p className="text-sm font-bold text-neutral-900 dark:text-neutral-100">
+                  Full Stack &amp; Product Engineering
+                </p>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-[#F4F4F1] dark:bg-[#1E1E1D] border border-neutral-200/80 dark:border-neutral-800/80 flex items-start gap-3.5 shadow-2xs">
+              <div className="p-2.5 rounded-xl bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white shrink-0 shadow-xs">
+                <Rocket className="w-4 h-4 text-amber-500" />
+              </div>
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-400 dark:text-neutral-500 block mb-0.5">
+                  BUILDING
+                </span>
+                <p className="text-sm font-bold text-neutral-900 dark:text-neutral-100">
+                  Optenary
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-
-        {/* View Resume Button matching Mobile Screenshot */}
-        <div>
-          <a
-            href={resumeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-neutral-200/80 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 hover:bg-neutral-300 dark:hover:bg-neutral-700 transition-all border border-neutral-300/60 dark:border-neutral-700/60"
-          >
-            <FileText className="w-4 h-4" />
-            <span>View Resume</span>
-          </a>
         </div>
       </motion.div>
     </section>
