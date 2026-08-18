@@ -78,6 +78,82 @@
   box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
 }
 
+/* Continuous Traveling Animated Black Perimeter Border for Navbar */
+@property --nav-border-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes navBorderRotate {
+  0% {
+    --nav-border-angle: 0deg;
+  }
+  100% {
+    --nav-border-angle: 360deg;
+  }
+}
+
+.nav-loop-border {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 9999px;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+  z-index: 1;
+}
+
+.dark .nav-loop-border {
+  background-color: rgba(25, 25, 24, 0.95);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+}
+
+.nav-loop-border::before {
+  content: "";
+  position: absolute;
+  inset: -1.5px;
+  border-radius: 9999px;
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--nav-border-angle, 0deg),
+    transparent 0%,
+    transparent 65%,
+    rgba(23, 23, 23, 0.3) 75%,
+    rgba(23, 23, 23, 1) 90%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: navBorderRotate 4.5s linear infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.dark .nav-loop-border::before {
+  background: conic-gradient(
+    from var(--nav-border-angle, 0deg),
+    transparent 0%,
+    transparent 65%,
+    rgba(245, 245, 245, 0.3) 75%,
+    rgba(245, 245, 245, 1) 90%,
+    transparent 100%
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-loop-border::before {
+    animation: none;
+    background: #171717;
+    opacity: 0.25;
+  }
+  .dark .nav-loop-border::before {
+    background: #F5F5F5;
+    opacity: 0.25;
+  }
+}
+
 /* Continuous Traveling Animated Black Perimeter Border for Skills Cards */
 @property --skill-border-angle {
   syntax: "<angle>";

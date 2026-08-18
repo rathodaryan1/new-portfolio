@@ -42,7 +42,7 @@ export function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex justify-center p-3 sm:p-6 transition-all duration-300">
-      <nav className="w-full max-w-4xl rounded-full glass-pill border border-neutral-200/80 dark:border-neutral-800/80 px-4 sm:px-6 py-2.5 flex items-center justify-between shadow-lg shadow-neutral-950/5">
+      <nav className="w-full max-w-4xl rounded-full nav-loop-border px-4 sm:px-6 py-2.5 flex items-center justify-between shadow-lg shadow-neutral-950/5">
         {/* Brand Name Logo matching Mobile Screenshot */}
         <Link
           href="#hero"
