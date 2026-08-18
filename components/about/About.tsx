@@ -24,13 +24,13 @@ export function About() {
           </p>
         </div>
 
-        {/* Narrative Paragraphs matching Mobile Screenshot */}
+        {/* Narrative Paragraphs */}
         <div className="space-y-4 sm:space-y-5 text-sm sm:text-base text-neutral-700 dark:text-neutral-300 leading-relaxed mb-8 sm:mb-10">
           <p>
-            I am currently a <strong className="font-semibold text-neutral-900 dark:text-neutral-100">Diploma Computer Engineering</strong> student based in Ahmedabad, Gujarat. I love creating clean, fast, and responsive web products using HTML, CSS, JavaScript, TypeScript, React, and Next.js.
+            I am <strong className="font-semibold text-neutral-900 dark:text-neutral-100">Aryan Rathod</strong>, a <strong className="font-semibold text-neutral-900 dark:text-neutral-100">Diploma Computer Engineering</strong> student and <strong className="font-semibold text-neutral-900 dark:text-neutral-100">Full Stack Developer</strong> based in Ahmedabad, Gujarat, India. I specialize in engineering clean, fast, and responsive web applications using Next.js, React, TypeScript, Tailwind CSS, Supabase, and PostgreSQL.
           </p>
           <p>
-            Alongside design and UI development, I enjoy resolving programming challenges. I completed Data Structures &amp; Algorithms, and I am consistently writing code to build real digital products as the founder of <strong className="font-semibold text-neutral-900 dark:text-neutral-100">Optenary</strong>.
+            Alongside modern web development and algorithms, I am the Founder &amp; CEO of <strong className="font-semibold text-neutral-900 dark:text-neutral-100">Optenary</strong>, where I take ambitious ideas from concept to production by building custom software products, e-commerce engines, and AI automation workflows.
           </p>
         </div>
 
