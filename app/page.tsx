@@ -8,20 +8,20 @@ import { Journey } from "@/components/journey/Journey";
 import { Education } from "@/components/education/Education";
 import { Contact } from "@/components/contact/Contact";
 import { Footer } from "@/components/footer/Footer";
+import { siteConfig } from "@/data/site";
 
 const jsonLdWebPage = {
   "@context": "https://schema.org",
   "@type": "ProfilePage",
-  "@id": "https://optenary.tech/#webpage",
-  url: "https://optenary.tech",
-  name: "Aryan Rathod | Full Stack Developer & Founder of Optenary",
-  description:
-    "Aryan Rathod is a Full Stack Developer, Computer Engineering student, and Founder of Optenary, building modern web applications, e-commerce platforms, and digital solutions.",
+  "@id": `${siteConfig.url}/#webpage`,
+  url: siteConfig.url,
+  name: siteConfig.title,
+  description: siteConfig.description,
   mainEntity: {
-    "@id": "https://optenary.tech/#person",
+    "@id": `${siteConfig.url}/#person`,
   },
   isPartOf: {
-    "@id": "https://optenary.tech/#website",
+    "@id": `${siteConfig.url}/#website`,
   },
   inLanguage: "en-US",
 };

@@ -2,13 +2,12 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { siteConfig } from "@/data/site";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
 });
-
-const siteUrl = "https://optenary.tech";
 
 export const viewport: Viewport = {
   themeColor: [
@@ -20,38 +19,36 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: "Aryan Rathod | Full Stack Developer & Founder of Optenary",
-  description:
-    "Aryan Rathod is a Computer Engineering student, Full Stack Developer, and Founder of Optenary based in Ahmedabad, Gujarat, building modern web applications, e-commerce platforms, and digital solutions.",
+  metadataBase: new URL(siteConfig.url),
+  title: siteConfig.title,
+  description: siteConfig.description,
   keywords: [
     "Aryan Rathod",
     "Aryan Rathod developer",
     "Aryan Rathod software developer",
     "Aryan Rathod web developer",
+    "Aryan Rathod full stack developer",
     "Aryan Rathod Ahmedabad",
+    "Aryan Rathod Gujarat",
     "Aryan Rathod Optenary",
     "Aryan Rathod portfolio",
     "Full Stack Developer",
     "Next.js Developer",
     "React Developer",
     "TypeScript",
-    "Mehta Dairy",
-    "Optenary Technology",
     "Software Engineer Gujarat"
   ],
-  authors: [{ name: "Aryan Rathod", url: siteUrl }],
-  creator: "Aryan Rathod",
-  publisher: "Aryan Rathod",
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
   alternates: {
-    canonical: siteUrl,
+    canonical: siteConfig.url,
   },
   openGraph: {
-    title: "Aryan Rathod | Full Stack Developer & Founder of Optenary",
-    description:
-      "Aryan Rathod is a Computer Engineering student, Full Stack Developer, and Founder of Optenary based in Ahmedabad, Gujarat, building modern web applications, custom e-commerce platforms, and digital solutions.",
-    url: siteUrl,
-    siteName: "Aryan Rathod",
+    title: siteConfig.title,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
     locale: "en_IN",
     type: "profile",
     images: [
@@ -59,15 +56,14 @@ export const metadata: Metadata = {
         url: "/profile/aryan.png",
         width: 800,
         height: 800,
-        alt: "Aryan Rathod — Full Stack Developer & Founder of Optenary",
+        alt: `${siteConfig.name} — ${siteConfig.jobTitle}`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aryan Rathod | Full Stack Developer & Founder of Optenary",
-    description:
-      "Computer Engineering student, Full Stack Developer, and Founder of Optenary building modern web applications and digital solutions.",
+    title: siteConfig.title,
+    description: siteConfig.description,
     creator: "@_rathodaryan_",
     images: ["/profile/aryan.png"],
   },
@@ -87,30 +83,28 @@ export const metadata: Metadata = {
 const jsonLdPerson = {
   "@context": "https://schema.org",
   "@type": "Person",
-  "@id": `${siteUrl}/#person`,
-  name: "Aryan Rathod",
+  "@id": `${siteConfig.url}/#person`,
+  name: siteConfig.name,
   givenName: "Aryan",
   familyName: "Rathod",
-  url: siteUrl,
-  image: `${siteUrl}/profile/aryan.png`,
-  jobTitle: "Full Stack Developer",
-  description:
-    "Aryan Rathod is a Computer Engineering student, Full Stack Developer, and Founder of Optenary based in Ahmedabad, Gujarat.",
+  url: siteConfig.url,
+  image: `${siteConfig.url}/profile/aryan.png`,
+  jobTitle: siteConfig.jobTitle,
+  description: siteConfig.description,
   worksFor: {
     "@type": "Organization",
-    name: "Optenary",
-    url: "https://optenary.tech",
-    logo: `${siteUrl}/optenary-logo.png`,
+    name: siteConfig.company.name,
+    url: siteConfig.company.url,
   },
   alumniOf: {
     "@type": "EducationalOrganization",
-    name: "R.C. Technical Institute, Ahmedabad",
+    name: siteConfig.institution,
   },
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Ahmedabad",
-    addressRegion: "Gujarat",
-    addressCountry: "IN",
+    addressLocality: siteConfig.location.city,
+    addressRegion: siteConfig.location.state,
+    addressCountry: siteConfig.location.countryCode,
   },
   knowsAbout: [
     "Full Stack Web Development",
@@ -124,24 +118,18 @@ const jsonLdPerson = {
     "Software Engineering",
     "REST APIs"
   ],
-  sameAs: [
-    "https://www.linkedin.com/in/rathodaryan/",
-    "https://github.com/rathodaryan1",
-    "https://www.instagram.com/_rathodaryan_/",
-    "https://x.com/_rathodaryan_",
-    "https://optenary.tech/"
-  ],
+  sameAs: siteConfig.sameAs,
 };
 
 const jsonLdWebSite = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "@id": `${siteUrl}/#website`,
-  url: siteUrl,
-  name: "Aryan Rathod — Portfolio",
-  description: "Official personal portfolio and project showcase of Aryan Rathod.",
+  "@id": `${siteConfig.url}/#website`,
+  url: siteConfig.url,
+  name: `${siteConfig.name} — Personal Portfolio`,
+  description: siteConfig.description,
   publisher: {
-    "@id": `${siteUrl}/#person`,
+    "@id": `${siteConfig.url}/#person`,
   },
 };
 

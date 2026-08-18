@@ -1,4 +1,5 @@
 import { projects } from "@/data/projects";
+import { siteConfig } from "@/data/site";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Navbar } from "@/components/navbar/Navbar";
@@ -12,8 +13,6 @@ interface ProjectPageProps {
   };
 }
 
-const siteUrl = "https://optenary.tech";
-
 export async function generateStaticParams() {
   return projects.map((p) => ({
     slug: p.slug,
@@ -24,7 +23,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   const project = projects.find((p) => p.slug === params.slug);
   if (!project) return {};
 
-  const pageUrl = `${siteUrl}/projects/${project.slug}`;
+  const pageUrl = `${siteConfig.url}/projects/${project.slug}`;
 
   return {
     title: `${project.title} — Case Study | Aryan Rathod`,
@@ -37,7 +36,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
       "Aryan Rathod developer",
       ...project.technologies,
     ],
-    authors: [{ name: "Aryan Rathod", url: siteUrl }],
+    authors: [{ name: siteConfig.name, url: siteConfig.url }],
     alternates: {
       canonical: pageUrl,
     },
@@ -45,14 +44,14 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
       title: `${project.title} — Case Study | Aryan Rathod`,
       description: project.description,
       url: pageUrl,
-      siteName: "Aryan Rathod",
+      siteName: siteConfig.name,
       type: "article",
       images: [
         {
           url: project.image,
           width: 1200,
           height: 630,
-          alt: `${project.title} — Built by Aryan Rathod`,
+          alt: `${project.title} — Engineered by Aryan Rathod`,
         },
       ],
     },
@@ -66,6 +65,32 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   };
 }
 
+function getProjectSchema(project: (typeof projects)[0], pageUrl: string) {
+  const isSaaS = project.slug === "urban-nest";
+  const isEcommerce = project.slug === "mehta-dairy" || project.slug === "vishal-masala";
+
+  return {
+    "@context": "https://schema.org",
+    "@type": isSaaS ? "SoftwareApplication" : "WebApplication",
+    name: project.title,
+    applicationCategory: isSaaS
+      ? "BusinessApplication"
+      : isEcommerce
+      ? "ShoppingApplication"
+      : "BusinessApplication",
+    operatingSystem: "Web",
+    description: project.description,
+    url: pageUrl,
+    author: {
+      "@type": "Person",
+      "@id": `${siteConfig.url}/#person`,
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+    image: `${siteConfig.url}${project.image}`,
+  };
+}
+
 export default function ProjectCaseStudyPage({ params }: ProjectPageProps) {
   const project = projects.find((p) => p.slug === params.slug);
 
@@ -74,23 +99,8 @@ export default function ProjectCaseStudyPage({ params }: ProjectPageProps) {
   }
 
   const { caseStudy } = project;
-  const pageUrl = `${siteUrl}/projects/${project.slug}`;
-
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: project.title,
-    applicationCategory: "WebApplication",
-    operatingSystem: "All",
-    description: project.description,
-    url: pageUrl,
-    author: {
-      "@type": "Person",
-      name: "Aryan Rathod",
-      url: siteUrl,
-    },
-    image: `${siteUrl}${project.image}`,
-  };
+  const pageUrl = `${siteConfig.url}/projects/${project.slug}`;
+  const jsonLd = getProjectSchema(project, pageUrl);
 
   return (
     <div className="min-h-screen bg-custom text-primary flex flex-col">

@@ -1,8 +1,9 @@
 import { MetadataRoute } from "next";
 import { projects } from "@/data/projects";
+import { siteConfig } from "@/data/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://optenary.tech";
+  const baseUrl = siteConfig.url;
 
   const projectUrls = projects.map((p) => ({
     url: `${baseUrl}/projects/${p.slug}`,
