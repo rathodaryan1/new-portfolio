@@ -1,6 +1,6 @@
 export const siteConfig = {
-  // Use environment variable if provided, fallback to standard personal portfolio production URL
-  url: (process.env.NEXT_PUBLIC_SITE_URL || "https://aryanrathod.vercel.app").replace(/\/+$/, ""),
+  // Official Production URL
+  url: "https://aryanrathod.is-a.dev",
   name: "Aryan Rathod",
   title: "Aryan Rathod | Full Stack Developer & Founder of Optenary",
   description:
