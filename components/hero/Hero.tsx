@@ -22,7 +22,7 @@ export function Hero() {
           <div className="w-32 h-32 sm:w-44 sm:h-44 rounded-full overflow-hidden border-4 border-white dark:border-neutral-800 shadow-xl bg-neutral-100 dark:bg-neutral-900">
             <img
               src={personal.avatarUrl}
-              alt={personal.name}
+              alt="Aryan Rathod — Full Stack Developer & Founder of Optenary"
               className="object-cover w-full h-full"
             />
           </div>

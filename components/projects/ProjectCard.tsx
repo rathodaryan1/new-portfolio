@@ -57,7 +57,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <div className="relative w-full aspect-[16/10] overflow-hidden bg-neutral-900 border-b border-neutral-200/50 dark:border-neutral-800/50">
           <img
             src={project.image}
-            alt={project.title}
+            alt={`${project.title} custom platform developed by Aryan Rathod`}
             className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
           />
         </div>

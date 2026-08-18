@@ -1,6 +1,5 @@
 import { projects } from "@/data/projects";
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "@/components/navbar/Navbar";
 import { Footer } from "@/components/footer/Footer";
@@ -13,6 +12,8 @@ interface ProjectPageProps {
   };
 }
 
+const siteUrl = "https://optenary.tech";
+
 export async function generateStaticParams() {
   return projects.map((p) => ({
     slug: p.slug,
@@ -23,12 +24,43 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   const project = projects.find((p) => p.slug === params.slug);
   if (!project) return {};
 
+  const pageUrl = `${siteUrl}/projects/${project.slug}`;
+
   return {
     title: `${project.title} — Case Study | Aryan Rathod`,
     description: project.description,
+    keywords: [
+      project.title,
+      `${project.title} case study`,
+      `Aryan Rathod ${project.title}`,
+      "Aryan Rathod projects",
+      "Aryan Rathod developer",
+      ...project.technologies,
+    ],
+    authors: [{ name: "Aryan Rathod", url: siteUrl }],
+    alternates: {
+      canonical: pageUrl,
+    },
     openGraph: {
-      title: `${project.title} — Case Study by Aryan Rathod`,
+      title: `${project.title} — Case Study | Aryan Rathod`,
       description: project.description,
+      url: pageUrl,
+      siteName: "Aryan Rathod",
+      type: "article",
+      images: [
+        {
+          url: project.image,
+          width: 1200,
+          height: 630,
+          alt: `${project.title} — Built by Aryan Rathod`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} — Case Study | Aryan Rathod`,
+      description: project.description,
+      creator: "@_rathodaryan_",
       images: [project.image],
     },
   };
@@ -42,9 +74,33 @@ export default function ProjectCaseStudyPage({ params }: ProjectPageProps) {
   }
 
   const { caseStudy } = project;
+  const pageUrl = `${siteUrl}/projects/${project.slug}`;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: project.title,
+    applicationCategory: "WebApplication",
+    operatingSystem: "All",
+    description: project.description,
+    url: pageUrl,
+    author: {
+      "@type": "Person",
+      name: "Aryan Rathod",
+      url: siteUrl,
+    },
+    image: `${siteUrl}${project.image}`,
+  };
 
   return (
     <div className="min-h-screen bg-custom text-primary flex flex-col">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
+
       <Navbar />
 
       <main className="flex-1 pt-28 pb-20 px-4 max-w-5xl mx-auto w-full">
@@ -84,7 +140,7 @@ export default function ProjectCaseStudyPage({ params }: ProjectPageProps) {
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold bg-blue-600 hover:bg-blue-700 text-white transition-all shadow-md"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-all shadow-md"
               >
                 <span>Visit Live Platform</span>
                 <ExternalLink className="w-4 h-4" />
@@ -98,7 +154,7 @@ export default function ProjectCaseStudyPage({ params }: ProjectPageProps) {
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold border border-neutral-300 dark:border-neutral-700 bg-white/50 dark:bg-neutral-900/50 text-neutral-800 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all"
               >
                 <Github className="w-4 h-4" />
-                <span>View Source</span>
+                <span>View Source on GitHub</span>
               </a>
             )}
           </div>
@@ -108,7 +164,7 @@ export default function ProjectCaseStudyPage({ params }: ProjectPageProps) {
         <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 shadow-xl mb-16 bg-neutral-900">
           <img
             src={project.image}
-            alt={project.title}
+            alt={`${project.title} — Developed by Aryan Rathod`}
             className="w-full h-full object-cover object-top"
           />
         </div>
@@ -188,12 +244,12 @@ export default function ProjectCaseStudyPage({ params }: ProjectPageProps) {
         </div>
 
         {/* Bottom CTA */}
-        <div className="p-8 sm:p-12 rounded-3xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-center">
+        <div className="p-8 sm:p-12 rounded-3xl bg-[#F4F4F1] dark:bg-[#1E1E1D] border border-neutral-200 dark:border-neutral-800 text-center">
           <h3 className="text-2xl sm:text-3xl font-extrabold text-neutral-900 dark:text-neutral-100 mb-3">
-            Have a similar project in mind?
+            Have a project in mind?
           </h3>
           <p className="text-base text-neutral-600 dark:text-neutral-400 max-w-xl mx-auto mb-6">
-            Let&apos;s discuss your business requirements and engineer a custom solution.
+            Let&apos;s connect and build a high-performance solution for your business.
           </p>
           <Link
             href="/#contact"

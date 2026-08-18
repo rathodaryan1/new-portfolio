@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
@@ -8,39 +8,140 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+const siteUrl = "https://optenary.tech";
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#FBFBFA" },
+    { media: "(prefers-color-scheme: dark)", color: "#0F0F0E" },
+  ],
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://optenary.tech"),
-  title: "Aryan Rathod — Full Stack Developer & Founder",
+  metadataBase: new URL(siteUrl),
+  title: "Aryan Rathod | Full Stack Developer & Founder of Optenary",
   description:
-    "Aryan Rathod is a Full Stack Developer, Computer Engineering student, and Founder of Optenary, building modern web applications, e-commerce platforms, custom software, and digital products.",
+    "Aryan Rathod is a Computer Engineering student, Full Stack Developer, and Founder of Optenary based in Ahmedabad, Gujarat, building modern web applications, e-commerce platforms, and digital solutions.",
   keywords: [
     "Aryan Rathod",
-    "Optenary",
+    "Aryan Rathod developer",
+    "Aryan Rathod software developer",
+    "Aryan Rathod web developer",
+    "Aryan Rathod Ahmedabad",
+    "Aryan Rathod Optenary",
+    "Aryan Rathod portfolio",
     "Full Stack Developer",
-    "Software Engineer",
-    "Web Developer Ahmedabad",
     "Next.js Developer",
+    "React Developer",
+    "TypeScript",
     "Mehta Dairy",
-    "Digital Product Agency"
+    "Optenary Technology",
+    "Software Engineer Gujarat"
   ],
-  authors: [{ name: "Aryan Rathod" }],
+  authors: [{ name: "Aryan Rathod", url: siteUrl }],
+  creator: "Aryan Rathod",
+  publisher: "Aryan Rathod",
+  alternates: {
+    canonical: siteUrl,
+  },
   openGraph: {
-    title: "Aryan Rathod — Full Stack Developer & Founder",
+    title: "Aryan Rathod | Full Stack Developer & Founder of Optenary",
     description:
-      "Computer Engineering student and developer building modern web applications, custom e-commerce platforms, and software products.",
-    url: "https://optenary.tech",
-    siteName: "Aryan Rathod Portfolio",
-    type: "website",
+      "Aryan Rathod is a Computer Engineering student, Full Stack Developer, and Founder of Optenary based in Ahmedabad, Gujarat, building modern web applications, custom e-commerce platforms, and digital solutions.",
+    url: siteUrl,
+    siteName: "Aryan Rathod",
+    locale: "en_IN",
+    type: "profile",
+    images: [
+      {
+        url: "/profile/aryan.png",
+        width: 800,
+        height: 800,
+        alt: "Aryan Rathod — Full Stack Developer & Founder of Optenary",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aryan Rathod — Full Stack Developer & Founder",
+    title: "Aryan Rathod | Full Stack Developer & Founder of Optenary",
     description:
-      "Building real digital products and custom web applications.",
+      "Computer Engineering student, Full Stack Developer, and Founder of Optenary building modern web applications and digital solutions.",
+    creator: "@_rathodaryan_",
+    images: ["/profile/aryan.png"],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+};
+
+const jsonLdPerson = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": `${siteUrl}/#person`,
+  name: "Aryan Rathod",
+  givenName: "Aryan",
+  familyName: "Rathod",
+  url: siteUrl,
+  image: `${siteUrl}/profile/aryan.png`,
+  jobTitle: "Full Stack Developer",
+  description:
+    "Aryan Rathod is a Computer Engineering student, Full Stack Developer, and Founder of Optenary based in Ahmedabad, Gujarat.",
+  worksFor: {
+    "@type": "Organization",
+    name: "Optenary",
+    url: "https://optenary.tech",
+    logo: `${siteUrl}/optenary-logo.png`,
+  },
+  alumniOf: {
+    "@type": "EducationalOrganization",
+    name: "R.C. Technical Institute, Ahmedabad",
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Ahmedabad",
+    addressRegion: "Gujarat",
+    addressCountry: "IN",
+  },
+  knowsAbout: [
+    "Full Stack Web Development",
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Node.js",
+    "PostgreSQL",
+    "Supabase",
+    "E-Commerce Architecture",
+    "Software Engineering",
+    "REST APIs"
+  ],
+  sameAs: [
+    "https://www.linkedin.com/in/rathodaryan/",
+    "https://github.com/rathodaryan1",
+    "https://www.instagram.com/_rathodaryan_/",
+    "https://x.com/_rathodaryan_",
+    "https://optenary.tech/"
+  ],
+};
+
+const jsonLdWebSite = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${siteUrl}/#website`,
+  url: siteUrl,
+  name: "Aryan Rathod — Portfolio",
+  description: "Official personal portfolio and project showcase of Aryan Rathod.",
+  publisher: {
+    "@id": `${siteUrl}/#person`,
   },
 };
 
@@ -51,6 +152,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdPerson) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebSite) }}
+        />
+      </head>
       <body className={`${inter.variable} font-sans antialiased min-h-screen bg-custom text-primary`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}

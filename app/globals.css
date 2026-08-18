@@ -78,7 +78,90 @@
   box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
 }
 
-/* Short Line Strip Looping Around Every Corner of the Card on Hover */
+/* Continuous Traveling Animated Black Perimeter Border for Skills Cards */
+@property --skill-border-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes skillBorderRotate {
+  0% {
+    --skill-border-angle: 0deg;
+  }
+  100% {
+    --skill-border-angle: 360deg;
+  }
+}
+
+.skill-card-animated-border {
+  position: relative;
+  background-color: #F4F4F1;
+  border-radius: 1rem;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+  z-index: 1;
+}
+
+.dark .skill-card-animated-border {
+  background-color: #1E1E1D;
+}
+
+.skill-card-animated-border::before {
+  content: "";
+  position: absolute;
+  inset: -1.5px;
+  border-radius: calc(1rem + 1.5px);
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--skill-border-angle, 0deg),
+    transparent 0%,
+    transparent 65%,
+    rgba(23, 23, 23, 0.25) 75%,
+    rgba(23, 23, 23, 1) 90%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: skillBorderRotate 5s linear infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.dark .skill-card-animated-border::before {
+  background: conic-gradient(
+    from var(--skill-border-angle, 0deg),
+    transparent 0%,
+    transparent 65%,
+    rgba(245, 245, 245, 0.25) 75%,
+    rgba(245, 245, 245, 1) 90%,
+    transparent 100%
+  );
+}
+
+.skill-card-animated-border:hover {
+  transform: translateY(-3px);
+  box-shadow: -3px 3px 0px 0px #171717;
+}
+
+.dark .skill-card-animated-border:hover {
+  transform: translateY(-3px);
+  box-shadow: -3px 3px 0px 0px #F5F5F5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-card-animated-border::before {
+    animation: none;
+    background: #171717;
+    opacity: 0.2;
+  }
+  .dark .skill-card-animated-border::before {
+    background: #F5F5F5;
+    opacity: 0.25;
+  }
+}
+
+/* Card Hover Line for Projects and General Cards */
 .card-hover-line {
   position: relative;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
