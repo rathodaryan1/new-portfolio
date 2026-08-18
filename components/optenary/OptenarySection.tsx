@@ -21,7 +21,7 @@ export function OptenarySection() {
               alt="Optenary Logo"
               className="w-4 h-4 rounded object-cover shrink-0"
             />
-            <span>FOUNDED &amp; LED BY ARYAN RATHOD</span>
+            <span>FOUNDED &amp; LEAD BY ARYAN RATHOD</span>
           </div>
 
           {/* Heading */}

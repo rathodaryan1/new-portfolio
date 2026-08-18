@@ -170,7 +170,7 @@ export function Contact() {
             {status === "success" && (
               <div className="p-3.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 text-emerald-600 text-xs font-semibold flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 shrink-0" />
-                <span>Thank you! Your message has been sent directly to Telegram.</span>
+                <span>Thank you! Your message has been sent successfully. I will get back to you soon.</span>
               </div>
             )}
 
@@ -184,7 +184,7 @@ export function Contact() {
                 {status === "loading" ? (
                   <>
                     <Loader2 className="w-4 h-4 animate-spin" />
-                    <span>Sending to Telegram...</span>
+                    <span>Sending message...</span>
                   </>
                 ) : (
                   <>
