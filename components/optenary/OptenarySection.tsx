@@ -11,7 +11,7 @@ export function OptenarySection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="card-hover-line p-8 sm:p-10 rounded-3xl bg-[#F4F4F1] dark:bg-[#1E1E1D] border border-neutral-200/80 dark:border-neutral-800/80 shadow-xs flex flex-col justify-between"
+        className="card-loop-border p-8 sm:p-10 rounded-3xl flex flex-col justify-between"
       >
         <div>
           {/* Badge */}

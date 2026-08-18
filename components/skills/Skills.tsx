@@ -48,7 +48,7 @@ export function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
-              className="skill-card-animated-border p-6 rounded-2xl border border-neutral-200/80 dark:border-neutral-800/80 flex flex-col justify-between cursor-pointer"
+              className="card-loop-border p-6 rounded-2xl flex flex-col justify-between cursor-pointer"
             >
               <div>
                 <h3 className="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-3">

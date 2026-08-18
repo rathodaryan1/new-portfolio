@@ -50,7 +50,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4 }}
-      className="card-hover-line group rounded-2xl sm:rounded-3xl bg-[#F4F4F1] dark:bg-[#1E1E1D] border border-neutral-200/80 dark:border-neutral-800/80 overflow-hidden flex flex-col justify-between cursor-pointer"
+      className="card-loop-border group rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col justify-between cursor-pointer"
     >
       <div>
         {/* Top Screenshot */}

@@ -121,7 +121,7 @@ export function Education() {
           </div>
 
           {/* Right/Bottom Detail Card matching Reference Screenshot */}
-          <div className="card-hover-line md:col-span-2 p-6 sm:p-8 rounded-3xl bg-[#F4F4F1] dark:bg-[#1E1E1D] border border-neutral-200/70 dark:border-neutral-800/70 shadow-xs min-h-[280px] flex flex-col justify-between">
+          <div className="card-loop-border md:col-span-2 p-6 sm:p-8 rounded-3xl min-h-[280px] flex flex-col justify-between">
             <div>
               <span className="text-xs font-bold text-neutral-400 dark:text-neutral-500 block mb-2">
                 {activeItem.period}

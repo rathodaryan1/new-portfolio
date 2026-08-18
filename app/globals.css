@@ -63,37 +63,23 @@
   }
 }
 
-/* Glassmorphism Navbar Pill */
-.glass-pill {
-  background-color: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
-}
-
-.dark .glass-pill {
-  background-color: rgba(25, 25, 24, 0.95);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
-}
-
-/* Continuous Traveling Animated Black Perimeter Border for Navbar */
-@property --nav-border-angle {
+/* Traveling Looping Border Angle Property */
+@property --border-angle {
   syntax: "<angle>";
   inherits: false;
   initial-value: 0deg;
 }
 
-@keyframes navBorderRotate {
+@keyframes borderRotateLoop {
   0% {
-    --nav-border-angle: 0deg;
+    --border-angle: 0deg;
   }
   100% {
-    --nav-border-angle: 360deg;
+    --border-angle: 360deg;
   }
 }
 
+/* 1. Navbar Pill Looping Traveling Border */
 .nav-loop-border {
   position: relative;
   background-color: rgba(255, 255, 255, 0.95);
@@ -116,179 +102,142 @@
   border-radius: 9999px;
   padding: 1.5px;
   background: conic-gradient(
-    from var(--nav-border-angle, 0deg),
-    transparent 0%,
-    transparent 65%,
-    rgba(23, 23, 23, 0.3) 75%,
+    from var(--border-angle, 0deg),
+    rgba(23, 23, 23, 0.12) 0%,
+    rgba(23, 23, 23, 0.12) 60%,
+    rgba(23, 23, 23, 0.4) 75%,
     rgba(23, 23, 23, 1) 90%,
-    transparent 100%
+    rgba(23, 23, 23, 0.12) 100%
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
-  animation: navBorderRotate 4.5s linear infinite;
+  animation: borderRotateLoop 4.5s linear infinite;
   pointer-events: none;
   z-index: 2;
 }
 
 .dark .nav-loop-border::before {
   background: conic-gradient(
-    from var(--nav-border-angle, 0deg),
-    transparent 0%,
-    transparent 65%,
-    rgba(245, 245, 245, 0.3) 75%,
+    from var(--border-angle, 0deg),
+    rgba(245, 245, 245, 0.12) 0%,
+    rgba(245, 245, 245, 0.12) 60%,
+    rgba(245, 245, 245, 0.4) 75%,
     rgba(245, 245, 245, 1) 90%,
-    transparent 100%
+    rgba(245, 245, 245, 0.12) 100%
   );
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .nav-loop-border::before {
-    animation: none;
-    background: #171717;
-    opacity: 0.25;
-  }
-  .dark .nav-loop-border::before {
-    background: #F5F5F5;
-    opacity: 0.25;
-  }
-}
-
-/* Continuous Traveling Animated Black Perimeter Border for Skills Cards */
-@property --skill-border-angle {
-  syntax: "<angle>";
-  inherits: false;
-  initial-value: 0deg;
-}
-
-@keyframes skillBorderRotate {
-  0% {
-    --skill-border-angle: 0deg;
-  }
-  100% {
-    --skill-border-angle: 360deg;
-  }
-}
-
-.skill-card-animated-border {
+/* 2. Universal Card Looping Traveling Border (Skills, Projects, Education, Optenary, Contact) */
+.card-loop-border {
   position: relative;
   background-color: #F4F4F1;
-  border-radius: 1rem;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+  border-radius: 1.5rem;
   z-index: 1;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
 }
 
-.dark .skill-card-animated-border {
+.dark .card-loop-border {
   background-color: #1E1E1D;
 }
 
-.skill-card-animated-border::before {
+.card-loop-border::before {
+  content: "";
+  position: absolute;
+  inset: -1.5px;
+  border-radius: calc(1.5rem + 1.5px);
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--border-angle, 0deg),
+    rgba(23, 23, 23, 0.12) 0%,
+    rgba(23, 23, 23, 0.12) 60%,
+    rgba(23, 23, 23, 0.4) 75%,
+    rgba(23, 23, 23, 1) 90%,
+    rgba(23, 23, 23, 0.12) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: borderRotateLoop 4.5s linear infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.dark .card-loop-border::before {
+  background: conic-gradient(
+    from var(--border-angle, 0deg),
+    rgba(245, 245, 245, 0.12) 0%,
+    rgba(245, 245, 245, 0.12) 60%,
+    rgba(245, 245, 245, 0.4) 75%,
+    rgba(245, 245, 245, 1) 90%,
+    rgba(245, 245, 245, 0.12) 100%
+  );
+}
+
+.card-loop-border:hover {
+  transform: translateY(-2px);
+}
+
+/* Support smaller 1rem rounded elements */
+.card-loop-border-sm {
+  position: relative;
+  background-color: #F4F4F1;
+  border-radius: 1rem;
+  z-index: 1;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark .card-loop-border-sm {
+  background-color: #1E1E1D;
+}
+
+.card-loop-border-sm::before {
   content: "";
   position: absolute;
   inset: -1.5px;
   border-radius: calc(1rem + 1.5px);
   padding: 1.5px;
   background: conic-gradient(
-    from var(--skill-border-angle, 0deg),
-    transparent 0%,
-    transparent 65%,
-    rgba(23, 23, 23, 0.25) 75%,
+    from var(--border-angle, 0deg),
+    rgba(23, 23, 23, 0.12) 0%,
+    rgba(23, 23, 23, 0.12) 60%,
+    rgba(23, 23, 23, 0.4) 75%,
     rgba(23, 23, 23, 1) 90%,
-    transparent 100%
+    rgba(23, 23, 23, 0.12) 100%
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
-  animation: skillBorderRotate 5s linear infinite;
+  animation: borderRotateLoop 4.5s linear infinite;
   pointer-events: none;
   z-index: 2;
 }
 
-.dark .skill-card-animated-border::before {
+.dark .card-loop-border-sm::before {
   background: conic-gradient(
-    from var(--skill-border-angle, 0deg),
-    transparent 0%,
-    transparent 65%,
-    rgba(245, 245, 245, 0.25) 75%,
+    from var(--border-angle, 0deg),
+    rgba(245, 245, 245, 0.12) 0%,
+    rgba(245, 245, 245, 0.12) 60%,
+    rgba(245, 245, 245, 0.4) 75%,
     rgba(245, 245, 245, 1) 90%,
-    transparent 100%
+    rgba(245, 245, 245, 0.12) 100%
   );
 }
 
-.skill-card-animated-border:hover {
-  transform: translateY(-3px);
-  box-shadow: -3px 3px 0px 0px #171717;
-}
-
-.dark .skill-card-animated-border:hover {
-  transform: translateY(-3px);
-  box-shadow: -3px 3px 0px 0px #F5F5F5;
-}
-
+/* Reduced Motion Fallback */
 @media (prefers-reduced-motion: reduce) {
-  .skill-card-animated-border::before {
+  .nav-loop-border::before,
+  .card-loop-border::before,
+  .card-loop-border-sm::before {
     animation: none;
     background: #171717;
-    opacity: 0.2;
-  }
-  .dark .skill-card-animated-border::before {
-    background: #F5F5F5;
     opacity: 0.25;
   }
-}
-
-/* Card Hover Line for Projects and General Cards */
-.card-hover-line {
-  position: relative;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
-  border: 1.5px solid transparent;
-}
-
-.card-hover-line:hover {
-  transform: translateY(-3px);
-  border: 2px solid #171717 !important;
-  animation: borderLineLoop 2.4s linear infinite;
-}
-
-.dark .card-hover-line:hover {
-  transform: translateY(-3px);
-  border: 2px solid #F5F5F5 !important;
-  animation: borderLineLoopDark 2.4s linear infinite;
-}
-
-@keyframes borderLineLoop {
-  0% {
-    box-shadow: -3px 3px 0px 0px #171717;
-  }
-  25% {
-    box-shadow: 3px 3px 0px 0px #171717;
-  }
-  50% {
-    box-shadow: 3px -3px 0px 0px #171717;
-  }
-  75% {
-    box-shadow: -3px -3px 0px 0px #171717;
-  }
-  100% {
-    box-shadow: -3px 3px 0px 0px #171717;
-  }
-}
-
-@keyframes borderLineLoopDark {
-  0% {
-    box-shadow: -3px 3px 0px 0px #F5F5F5;
-  }
-  25% {
-    box-shadow: 3px 3px 0px 0px #F5F5F5;
-  }
-  50% {
-    box-shadow: 3px -3px 0px 0px #F5F5F5;
-  }
-  75% {
-    box-shadow: -3px -3px 0px 0px #F5F5F5;
-  }
-  100% {
-    box-shadow: -3px 3px 0px 0px #F5F5F5;
+  .dark .nav-loop-border::before,
+  .dark .card-loop-border::before,
+  .dark .card-loop-border-sm::before {
+    background: #F5F5F5;
+    opacity: 0.25;
   }
 }
 

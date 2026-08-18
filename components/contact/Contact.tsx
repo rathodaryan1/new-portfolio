@@ -69,8 +69,8 @@ export function Contact() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
           {/* Email Card */}
           <a
-            href={`mailto:${emailSocial?.displayEmail || "hello@optenary.tech"}`}
-            className="card-hover-line p-5 rounded-2xl bg-[#F4F4F1] dark:bg-[#1E1E1D] border border-neutral-200/70 dark:border-neutral-800/70 flex items-center gap-4 transition-all"
+            href={`mailto:${emailSocial?.displayEmail || "aryan@optenary.tech"}`}
+            className="card-loop-border p-5 rounded-2xl flex items-center gap-4 transition-all"
           >
             <div className="p-3 rounded-xl bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white shadow-xs">
               <Mail className="w-5 h-5 text-[#EA4335]" />
@@ -80,13 +80,13 @@ export function Contact() {
                 EMAIL
               </span>
               <p className="text-sm font-bold text-neutral-900 dark:text-neutral-100">
-                {emailSocial?.displayEmail || "hello@optenary.tech"}
+                {emailSocial?.displayEmail || "aryan@optenary.tech"}
               </p>
             </div>
           </a>
 
           {/* Location Card */}
-          <div className="card-hover-line p-5 rounded-2xl bg-[#F4F4F1] dark:bg-[#1E1E1D] border border-neutral-200/70 dark:border-neutral-800/70 flex items-center gap-4 transition-all">
+          <div className="card-loop-border p-5 rounded-2xl flex items-center gap-4 transition-all">
             <div className="p-3 rounded-xl bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white shadow-xs">
               <MapPin className="w-5 h-5 text-blue-500" />
             </div>
@@ -111,7 +111,7 @@ export function Contact() {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="card-hover-line py-3 px-4 rounded-full bg-[#F4F4F1] dark:bg-[#1E1E1D] border border-neutral-200/70 dark:border-neutral-800/70 text-xs font-bold text-neutral-900 dark:text-neutral-100 flex items-center justify-center gap-2 hover:bg-neutral-200/60 dark:hover:bg-neutral-800/60 transition-all"
+                className="py-3 px-4 rounded-full bg-[#F4F4F1] dark:bg-[#1E1E1D] border border-neutral-200/70 dark:border-neutral-800/70 text-xs font-bold text-neutral-900 dark:text-neutral-100 flex items-center justify-center gap-2 hover:bg-neutral-200/60 dark:hover:bg-neutral-800/60 transition-all shadow-2xs"
               >
                 {social.name === "GitHub" && <Github className="w-4 h-4 text-neutral-900 dark:text-white" />}
                 {social.name === "LinkedIn" && <Linkedin className="w-4 h-4 text-[#0A66C2]" />}
@@ -123,7 +123,7 @@ export function Contact() {
         </div>
 
         {/* Bottom Large Contact Form Card matching reference screenshot */}
-        <div className="p-7 sm:p-9 rounded-3xl bg-[#F4F4F1] dark:bg-[#1E1E1D] border border-neutral-200/70 dark:border-neutral-800/70 shadow-sm">
+        <div className="card-loop-border p-7 sm:p-9 rounded-3xl shadow-sm">
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Side-by-Side Name & Email Inputs */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
