@@ -1,29 +1,33 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { Mail, MapPin, Send, Loader2, CheckCircle2, AlertCircle, Github, Linkedin, Instagram, Twitter } from "lucide-react";
 import { personal } from "@/data/personal";
 import { socialLinks } from "@/data/social";
+import { motion } from "framer-motion";
+import { Mail, MapPin, Send, CheckCircle2, AlertCircle, Loader2, Github, Linkedin, Instagram, Twitter } from "lucide-react";
 
 export function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      setStatus("error");
+      setErrorMessage("Please complete all fields before sending.");
+      return;
+    }
+
     setStatus("loading");
-    setErrorMessage("");
 
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(formData),
       });
 
@@ -65,8 +69,8 @@ export function Contact() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
           {/* Email Card */}
           <a
-            href={`mailto:${emailSocial?.displayEmail || "aryan@optenary.tech"}`}
-            className="p-5 rounded-2xl bg-[#F4F4F1] dark:bg-[#1E1E1D] border border-neutral-200/70 dark:border-neutral-800/70 flex items-center gap-4 transition-all hover:border-neutral-400 dark:hover:border-neutral-600"
+            href={`mailto:${emailSocial?.displayEmail || "hello@optenary.tech"}`}
+            className="card-hover-line p-5 rounded-2xl bg-[#F4F4F1] dark:bg-[#1E1E1D] border border-neutral-200/70 dark:border-neutral-800/70 flex items-center gap-4 transition-all"
           >
             <div className="p-3 rounded-xl bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white shadow-xs">
               <Mail className="w-5 h-5 text-[#EA4335]" />
@@ -76,13 +80,13 @@ export function Contact() {
                 EMAIL
               </span>
               <p className="text-sm font-bold text-neutral-900 dark:text-neutral-100">
-                {emailSocial?.displayEmail || "aryan@optenary.tech"}
+                {emailSocial?.displayEmail || "hello@optenary.tech"}
               </p>
             </div>
           </a>
 
           {/* Location Card */}
-          <div className="p-5 rounded-2xl bg-[#F4F4F1] dark:bg-[#1E1E1D] border border-neutral-200/70 dark:border-neutral-800/70 flex items-center gap-4 transition-all">
+          <div className="card-hover-line p-5 rounded-2xl bg-[#F4F4F1] dark:bg-[#1E1E1D] border border-neutral-200/70 dark:border-neutral-800/70 flex items-center gap-4 transition-all">
             <div className="p-3 rounded-xl bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white shadow-xs">
               <MapPin className="w-5 h-5 text-blue-500" />
             </div>
@@ -107,7 +111,7 @@ export function Contact() {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="py-3 px-4 rounded-full bg-[#F4F4F1] dark:bg-[#1E1E1D] border border-neutral-200/70 dark:border-neutral-800/70 text-xs font-bold text-neutral-900 dark:text-neutral-100 flex items-center justify-center gap-2 hover:bg-neutral-200/60 dark:hover:bg-neutral-800/60 transition-all shadow-2xs"
+                className="card-hover-line py-3 px-4 rounded-full bg-[#F4F4F1] dark:bg-[#1E1E1D] border border-neutral-200/70 dark:border-neutral-800/70 text-xs font-bold text-neutral-900 dark:text-neutral-100 flex items-center justify-center gap-2 hover:bg-neutral-200/60 dark:hover:bg-neutral-800/60 transition-all"
               >
                 {social.name === "GitHub" && <Github className="w-4 h-4 text-neutral-900 dark:text-white" />}
                 {social.name === "LinkedIn" && <Linkedin className="w-4 h-4 text-[#0A66C2]" />}

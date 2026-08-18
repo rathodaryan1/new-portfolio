@@ -1,17 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Globe, Code, Cpu, Building2 } from "lucide-react";
+import { ArrowUpRight, Globe, Code, Cpu, Building2, Sparkles } from "lucide-react";
 
 export function OptenarySection() {
   return (
-    <section className="py-16 px-4 max-w-5xl mx-auto border-t border-neutral-200/60 dark:border-neutral-800/60">
+    <section className="py-16 px-4 max-w-4xl mx-auto border-t border-neutral-200/60 dark:border-neutral-800/60">
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="p-8 sm:p-12 rounded-3xl bg-[#F4F4F1] dark:bg-[#1E1E1D] border border-neutral-200/80 dark:border-neutral-800/80 shadow-xs flex flex-col justify-between"
+        className="card-hover-line p-8 sm:p-10 rounded-3xl bg-[#F4F4F1] dark:bg-[#1E1E1D] border border-neutral-200/80 dark:border-neutral-800/80 shadow-xs flex flex-col justify-between"
       >
         <div>
           {/* Badge */}
@@ -21,7 +21,7 @@ export function OptenarySection() {
               alt="Optenary Logo"
               className="w-4 h-4 rounded object-cover shrink-0"
             />
-            <span>FOUNDED &amp; LED BY ARYAN RATHOD</span>
+            <span>FOUNDED &amp; LEAD BY ARYAN RATHOD</span>
           </div>
 
           {/* Heading */}
@@ -30,31 +30,31 @@ export function OptenarySection() {
           </h2>
 
           <p className="text-base font-semibold text-neutral-500 dark:text-neutral-400 mb-6">
-            Technology &amp; Digital Product Agency
+            Where technology evolves.
           </p>
 
           <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-300 leading-relaxed max-w-3xl mb-8">
-            Alongside development, I founded Optenary to design and build websites, e-commerce platforms, custom software, and AI automation systems for businesses.
+            Optenary is the digital product and technology company I founded to take ambitious ideas from concept to production. We specialize in custom web applications, high-throughput e-commerce platforms, AI automation, and bespoke software solutions for businesses.
           </p>
 
-          {/* Capability Pills */}
+          {/* Capability Pills matching Skills & Projects tags */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mb-8">
-            <div className="p-3.5 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-700/80 text-xs font-semibold text-neutral-800 dark:text-neutral-200 flex items-center gap-2.5 shadow-2xs">
+            <div className="p-3 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-700/80 text-xs font-semibold text-neutral-800 dark:text-neutral-200 flex items-center gap-2 shadow-xs">
               <Globe className="w-4 h-4 text-blue-500" />
               <span>Web Applications</span>
             </div>
 
-            <div className="p-3.5 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-700/80 text-xs font-semibold text-neutral-800 dark:text-neutral-200 flex items-center gap-2.5 shadow-2xs">
+            <div className="p-3 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-700/80 text-xs font-semibold text-neutral-800 dark:text-neutral-200 flex items-center gap-2 shadow-xs">
               <Code className="w-4 h-4 text-amber-500" />
               <span>Custom E-Commerce</span>
             </div>
 
-            <div className="p-3.5 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-700/80 text-xs font-semibold text-neutral-800 dark:text-neutral-200 flex items-center gap-2.5 shadow-2xs">
+            <div className="p-3 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-700/80 text-xs font-semibold text-neutral-800 dark:text-neutral-200 flex items-center gap-2 shadow-xs">
               <Cpu className="w-4 h-4 text-purple-500" />
               <span>AI &amp; Automation</span>
             </div>
 
-            <div className="p-3.5 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-700/80 text-xs font-semibold text-neutral-800 dark:text-neutral-200 flex items-center gap-2.5 shadow-2xs">
+            <div className="p-3 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-700/80 text-xs font-semibold text-neutral-800 dark:text-neutral-200 flex items-center gap-2 shadow-xs">
               <Building2 className="w-4 h-4 text-emerald-500" />
               <span>Business Systems</span>
             </div>
@@ -67,7 +67,7 @@ export function OptenarySection() {
             href="https://optenary.tech"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs sm:text-sm font-bold bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-all shadow-md"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-bold bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-all shadow-md"
           >
             <span>Visit Optenary Website</span>
             <ArrowUpRight className="w-4 h-4" />

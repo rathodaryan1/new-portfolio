@@ -4,24 +4,24 @@
 
 @layer base {
   :root {
-    --bg: #FAFAF9;
+    --bg: #FBFBFA;
     --surface: #FFFFFF;
     --card: #F4F4F1;
     --text: #171717;
     --secondary: #5F5F66;
     --muted: #737373;
-    --border: #E5E5E5;
+    --border: #E5E5E2;
     --accent: #2563EB;
   }
 
   .dark {
-    --bg: #0D0D0D;
-    --surface: #171717;
-    --card: #1E1E1D;
+    --bg: #0F0F0E;
+    --surface: #191918;
+    --card: #20201F;
     --text: #F5F5F5;
     --secondary: #A3A3A3;
     --muted: #737373;
-    --border: #2A2A2A;
+    --border: #2A2A28;
     --accent: #60A5FA;
   }
 
@@ -34,7 +34,7 @@
     background-color: var(--bg);
     color: var(--text);
     font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
-    transition: background-color 0.25s ease, color 0.25s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
     overflow-x: hidden;
   }
 }
@@ -65,17 +65,155 @@
 
 /* Glassmorphism Navbar Pill */
 .glass-pill {
-  background-color: rgba(255, 255, 255, 0.92);
+  background-color: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
 }
 
 .dark .glass-pill {
-  background-color: rgba(23, 23, 23, 0.92);
+  background-color: rgba(25, 25, 24, 0.95);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+}
+
+/* Continuous Traveling Animated Black Perimeter Border for Skills Cards */
+@property --skill-border-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes skillBorderRotate {
+  0% {
+    --skill-border-angle: 0deg;
+  }
+  100% {
+    --skill-border-angle: 360deg;
+  }
+}
+
+.skill-card-animated-border {
+  position: relative;
+  background-color: #F4F4F1;
+  border-radius: 1rem;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+  z-index: 1;
+}
+
+.dark .skill-card-animated-border {
+  background-color: #1E1E1D;
+}
+
+.skill-card-animated-border::before {
+  content: "";
+  position: absolute;
+  inset: -1.5px;
+  border-radius: calc(1rem + 1.5px);
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--skill-border-angle, 0deg),
+    transparent 0%,
+    transparent 65%,
+    rgba(23, 23, 23, 0.25) 75%,
+    rgba(23, 23, 23, 1) 90%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: skillBorderRotate 5s linear infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.dark .skill-card-animated-border::before {
+  background: conic-gradient(
+    from var(--skill-border-angle, 0deg),
+    transparent 0%,
+    transparent 65%,
+    rgba(245, 245, 245, 0.25) 75%,
+    rgba(245, 245, 245, 1) 90%,
+    transparent 100%
+  );
+}
+
+.skill-card-animated-border:hover {
+  transform: translateY(-3px);
+  box-shadow: -3px 3px 0px 0px #171717;
+}
+
+.dark .skill-card-animated-border:hover {
+  transform: translateY(-3px);
+  box-shadow: -3px 3px 0px 0px #F5F5F5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-card-animated-border::before {
+    animation: none;
+    background: #171717;
+    opacity: 0.2;
+  }
+  .dark .skill-card-animated-border::before {
+    background: #F5F5F5;
+    opacity: 0.25;
+  }
+}
+
+/* Card Hover Line for Projects and General Cards */
+.card-hover-line {
+  position: relative;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+  border: 1.5px solid transparent;
+}
+
+.card-hover-line:hover {
+  transform: translateY(-3px);
+  border: 2px solid #171717 !important;
+  animation: borderLineLoop 2.4s linear infinite;
+}
+
+.dark .card-hover-line:hover {
+  transform: translateY(-3px);
+  border: 2px solid #F5F5F5 !important;
+  animation: borderLineLoopDark 2.4s linear infinite;
+}
+
+@keyframes borderLineLoop {
+  0% {
+    box-shadow: -3px 3px 0px 0px #171717;
+  }
+  25% {
+    box-shadow: 3px 3px 0px 0px #171717;
+  }
+  50% {
+    box-shadow: 3px -3px 0px 0px #171717;
+  }
+  75% {
+    box-shadow: -3px -3px 0px 0px #171717;
+  }
+  100% {
+    box-shadow: -3px 3px 0px 0px #171717;
+  }
+}
+
+@keyframes borderLineLoopDark {
+  0% {
+    box-shadow: -3px 3px 0px 0px #F5F5F5;
+  }
+  25% {
+    box-shadow: 3px 3px 0px 0px #F5F5F5;
+  }
+  50% {
+    box-shadow: 3px -3px 0px 0px #F5F5F5;
+  }
+  75% {
+    box-shadow: -3px -3px 0px 0px #F5F5F5;
+  }
+  100% {
+    box-shadow: -3px 3px 0px 0px #F5F5F5;
+  }
 }
 
 /* Custom Scrollbar */
@@ -86,9 +224,9 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(120, 120, 120, 0.25);
+  background: rgba(120, 120, 120, 0.3);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(120, 120, 120, 0.45);
+  background: rgba(120, 120, 120, 0.5);
 }
