@@ -76,7 +76,7 @@ export function Education() {
   const activeItem = educationTimeline.find((i) => i.id === selectedId) || educationTimeline[0];
 
   return (
-    <section id="education" className="py-16 px-4 max-w-5xl mx-auto border-t border-neutral-200/60 dark:border-neutral-800/60">
+    <section id="education" className="scroll-mt-24 sm:scroll-mt-28 py-16 px-4 max-w-5xl mx-auto border-t border-neutral-200/60 dark:border-neutral-800/60">
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}

@@ -30,6 +30,21 @@
     color-scheme: light dark;
   }
 
+  /* Universal section anchor offset so fixed navbar never covers section headings */
+  section[id],
+  div[id],
+  [id] {
+    scroll-margin-top: 6.5rem;
+  }
+
+  @media (min-width: 640px) {
+    section[id],
+    div[id],
+    [id] {
+      scroll-margin-top: 7.5rem;
+    }
+  }
+
   body {
     background-color: var(--bg);
     color: var(--text);

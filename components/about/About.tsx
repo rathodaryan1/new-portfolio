@@ -7,7 +7,7 @@ import { FileText } from "lucide-react";
 
 export function About() {
   return (
-    <section id="about" className="py-12 sm:py-16 px-4 max-w-4xl mx-auto border-t border-neutral-200/60 dark:border-neutral-800/60">
+    <section id="about" className="scroll-mt-24 sm:scroll-mt-28 py-12 sm:py-16 px-4 max-w-4xl mx-auto border-t border-neutral-200/60 dark:border-neutral-800/60">
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
