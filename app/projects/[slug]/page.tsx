@@ -174,16 +174,10 @@ export default function ProjectCaseStudyPage({ params }: ProjectPageProps) {
         {/* Large Screenshot Preview with Subtle Browser Window Frame */}
         <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-neutral-200/80 dark:border-neutral-800/80 shadow-xl mb-16 bg-neutral-900 flex flex-col">
           {/* Top Browser Bar */}
-          <div className="h-7 px-4 bg-neutral-100 dark:bg-neutral-900 border-b border-neutral-200/70 dark:border-neutral-800/70 flex items-center justify-between z-10 shrink-0 select-none">
-            <div className="flex items-center gap-1.5">
-              <div className="w-2.5 h-2.5 rounded-full bg-red-400/80 dark:bg-red-500/70" />
-              <div className="w-2.5 h-2.5 rounded-full bg-amber-400/80 dark:bg-amber-500/70" />
-              <div className="w-2.5 h-2.5 rounded-full bg-emerald-400/80 dark:bg-emerald-500/70" />
-            </div>
-            <div className="px-3 py-0.5 rounded-md bg-white dark:bg-neutral-800 border border-neutral-200/60 dark:border-neutral-700/60 text-[10px] font-mono font-medium text-neutral-500 dark:text-neutral-400 max-w-[240px] truncate">
-              {project.liveUrl ? project.liveUrl.replace(/^https?:\/\//, "").replace(/\/$/, "") : `${project.slug}.tech`}
-            </div>
-            <div className="w-8" />
+          <div className="h-6 px-4 bg-neutral-100 dark:bg-neutral-900 border-b border-neutral-200/70 dark:border-neutral-800/70 flex items-center gap-1.5 z-10 shrink-0 select-none">
+            <div className="w-2.5 h-2.5 rounded-full bg-neutral-300 dark:bg-neutral-700" />
+            <div className="w-2.5 h-2.5 rounded-full bg-neutral-300 dark:bg-neutral-700" />
+            <div className="w-2.5 h-2.5 rounded-full bg-neutral-300 dark:bg-neutral-700" />
           </div>
 
           <div className="relative flex-1 w-full h-full overflow-hidden bg-neutral-950">

@@ -45,10 +45,6 @@ const iconMap: Record<string, React.ElementType> = {
 };
 
 export function ProjectCard({ project }: ProjectCardProps) {
-  const displayHost = project.liveUrl
-    ? project.liveUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")
-    : `${project.slug}.tech`;
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 15 }}
@@ -60,17 +56,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
       <div>
         {/* Subtle Browser Window Frame (16:10 Standardized Container) */}
         <div className="relative w-full aspect-[16/10] overflow-hidden bg-neutral-900 rounded-t-[1.4rem] border-b border-neutral-200/60 dark:border-neutral-800/60 flex flex-col">
-          {/* Minimal Window Controls Top Bar */}
-          <div className="h-6 px-3 bg-neutral-100/95 dark:bg-neutral-900/95 border-b border-neutral-200/70 dark:border-neutral-800/70 flex items-center justify-between z-10 shrink-0 select-none">
-            <div className="flex items-center gap-1.5">
-              <div className="w-2 h-2 rounded-full bg-red-400/80 dark:bg-red-500/70" />
-              <div className="w-2 h-2 rounded-full bg-amber-400/80 dark:bg-amber-500/70" />
-              <div className="w-2 h-2 rounded-full bg-emerald-400/80 dark:bg-emerald-500/70" />
-            </div>
-            <div className="px-2.5 py-0.5 rounded-md bg-white/80 dark:bg-neutral-800/80 border border-neutral-200/60 dark:border-neutral-700/60 text-[9px] font-mono font-medium text-neutral-500 dark:text-neutral-400 max-w-[130px] sm:max-w-[160px] truncate">
-              {displayHost}
-            </div>
-            <div className="w-7" />
+          {/* Minimal Neutral Top Bar with 3 Subtle Window Controls Only */}
+          <div className="h-5 px-3 bg-neutral-100/95 dark:bg-neutral-900/95 border-b border-neutral-200/60 dark:border-neutral-800/60 flex items-center gap-1.5 z-10 shrink-0 select-none">
+            <div className="w-2 h-2 rounded-full bg-neutral-300 dark:bg-neutral-700" />
+            <div className="w-2 h-2 rounded-full bg-neutral-300 dark:bg-neutral-700" />
+            <div className="w-2 h-2 rounded-full bg-neutral-300 dark:bg-neutral-700" />
           </div>
 
           {/* Screenshot Preview with Next.js Image */}
@@ -88,16 +78,16 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
         {/* Card Body */}
         <div className="p-4 sm:p-5">
-          {/* Title matching reference */}
+          {/* Title */}
           <Link href={`/projects/${project.slug}`}>
             <h3 className="text-lg sm:text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-2.5 tracking-tight hover:opacity-80 transition-opacity">
               {project.title}
             </h3>
           </Link>
 
-          {/* Feature Badge Pills */}
+          {/* 2–3 Most Important Feature Badges */}
           <div className="flex flex-wrap gap-1.5 mb-3">
-            {project.featureBadges?.slice(0, 4).map((badge, idx) => {
+            {project.featureBadges?.slice(0, 3).map((badge, idx) => {
               const IconComponent = iconMap[badge.icon] || Zap;
               return (
                 <span
@@ -111,14 +101,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
             })}
           </div>
 
-          {/* Description */}
-          <p className="text-[11px] sm:text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed mb-4 line-clamp-3">
+          {/* Short 2-3 Line Description */}
+          <p className="text-[11px] sm:text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed mb-4 line-clamp-2 sm:line-clamp-3">
             {project.description}
           </p>
         </div>
       </div>
 
-      {/* Two Action Buttons side by side */}
+      {/* Two Action Buttons side by side aligned at bottom */}
       <div className="px-4 sm:px-5 pb-4 sm:pb-5 pt-0 grid grid-cols-2 gap-2">
         <a
           href={project.githubUrl || `/projects/${project.slug}`}
