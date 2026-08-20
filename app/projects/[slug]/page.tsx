@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Navbar } from "@/components/navbar/Navbar";
 import { Footer } from "@/components/footer/Footer";
+import Image from "next/image";
 import { ArrowLeft, ExternalLink, Github, CheckCircle2, Layers, Cpu, ShieldCheck } from "lucide-react";
 import type { Metadata } from "next";
 
@@ -170,13 +171,31 @@ export default function ProjectCaseStudyPage({ params }: ProjectPageProps) {
           </div>
         </div>
 
-        {/* Large Screenshot Preview */}
-        <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 shadow-xl mb-16 bg-neutral-900">
-          <img
-            src={project.image}
-            alt={`${project.title} — Developed by Aryan Rathod`}
-            className="w-full h-full object-cover object-top"
-          />
+        {/* Large Screenshot Preview with Subtle Browser Window Frame */}
+        <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-neutral-200/80 dark:border-neutral-800/80 shadow-xl mb-16 bg-neutral-900 flex flex-col">
+          {/* Top Browser Bar */}
+          <div className="h-7 px-4 bg-neutral-100 dark:bg-neutral-900 border-b border-neutral-200/70 dark:border-neutral-800/70 flex items-center justify-between z-10 shrink-0 select-none">
+            <div className="flex items-center gap-1.5">
+              <div className="w-2.5 h-2.5 rounded-full bg-red-400/80 dark:bg-red-500/70" />
+              <div className="w-2.5 h-2.5 rounded-full bg-amber-400/80 dark:bg-amber-500/70" />
+              <div className="w-2.5 h-2.5 rounded-full bg-emerald-400/80 dark:bg-emerald-500/70" />
+            </div>
+            <div className="px-3 py-0.5 rounded-md bg-white dark:bg-neutral-800 border border-neutral-200/60 dark:border-neutral-700/60 text-[10px] font-mono font-medium text-neutral-500 dark:text-neutral-400 max-w-[240px] truncate">
+              {project.liveUrl ? project.liveUrl.replace(/^https?:\/\//, "").replace(/\/$/, "") : `${project.slug}.tech`}
+            </div>
+            <div className="w-8" />
+          </div>
+
+          <div className="relative flex-1 w-full h-full overflow-hidden bg-neutral-950">
+            <Image
+              src={project.image}
+              alt={project.altText || `${project.title} — Developed by Aryan Rathod`}
+              fill
+              sizes="(max-width: 1200px) 100vw, 1200px"
+              className="object-cover object-top"
+              priority
+            />
+          </div>
         </div>
 
         {/* Overview & Challenge Grid */}

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Project } from "@/data/projects";
 import {
   ExternalLink,
@@ -44,6 +45,10 @@ const iconMap: Record<string, React.ElementType> = {
 };
 
 export function ProjectCard({ project }: ProjectCardProps) {
+  const displayHost = project.liveUrl
+    ? project.liveUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")
+    : `${project.slug}.tech`;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 15 }}
@@ -53,13 +58,32 @@ export function ProjectCard({ project }: ProjectCardProps) {
       className="card-loop-border group rounded-3xl flex flex-col justify-between cursor-pointer"
     >
       <div>
-        {/* Top Screenshot with rounded top matching card border */}
-        <div className="relative w-full aspect-[16/10] overflow-hidden bg-neutral-900 rounded-t-[1.4rem] border-b border-neutral-200/50 dark:border-neutral-800/50">
-          <img
-            src={project.image}
-            alt={`${project.title} custom platform developed by Aryan Rathod`}
-            className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-103"
-          />
+        {/* Subtle Browser Window Frame (16:10 Standardized Container) */}
+        <div className="relative w-full aspect-[16/10] overflow-hidden bg-neutral-900 rounded-t-[1.4rem] border-b border-neutral-200/60 dark:border-neutral-800/60 flex flex-col">
+          {/* Minimal Window Controls Top Bar */}
+          <div className="h-6 px-3 bg-neutral-100/95 dark:bg-neutral-900/95 border-b border-neutral-200/70 dark:border-neutral-800/70 flex items-center justify-between z-10 shrink-0 select-none">
+            <div className="flex items-center gap-1.5">
+              <div className="w-2 h-2 rounded-full bg-red-400/80 dark:bg-red-500/70" />
+              <div className="w-2 h-2 rounded-full bg-amber-400/80 dark:bg-amber-500/70" />
+              <div className="w-2 h-2 rounded-full bg-emerald-400/80 dark:bg-emerald-500/70" />
+            </div>
+            <div className="px-2.5 py-0.5 rounded-md bg-white/80 dark:bg-neutral-800/80 border border-neutral-200/60 dark:border-neutral-700/60 text-[9px] font-mono font-medium text-neutral-500 dark:text-neutral-400 max-w-[130px] sm:max-w-[160px] truncate">
+              {displayHost}
+            </div>
+            <div className="w-7" />
+          </div>
+
+          {/* Screenshot Preview with Next.js Image */}
+          <div className="relative flex-1 w-full h-full overflow-hidden bg-neutral-950">
+            <Image
+              src={project.image}
+              alt={project.altText || `${project.title} custom platform developed by Aryan Rathod`}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover object-top transition-transform duration-500 group-hover:scale-103"
+              priority={project.slug === "mehta-dairy"}
+            />
+          </div>
         </div>
 
         {/* Card Body */}

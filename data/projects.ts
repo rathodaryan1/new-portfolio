@@ -19,6 +19,7 @@ export interface Project {
   category: string;
   description: string;
   image: string;
+  altText: string;
   accentColor: string;
   technologies: string[];
   featureBadges: FeatureBadge[];
@@ -36,6 +37,7 @@ export const projects: Project[] = [
     category: "B2C • CUSTOM E-COMMERCE • FOOD & RETAIL",
     description: "A custom digital commerce platform built for Mehta Dairy & Sweet Mart, bringing a long-established dairy and sweets business online with a modern shopping experience, online payments, customer accounts, delivery management, order tracking, WhatsApp ordering, and a powerful administration system.",
     image: "/projects/mehta-dairy.png",
+    altText: "Mehta Dairy custom e-commerce website",
     accentColor: "rgba(217, 119, 6, 0.15)",
     liveUrl: "https://www.mehtadairy.com/",
     githubUrl: "https://github.com/rathodaryan1",
@@ -95,6 +97,7 @@ export const projects: Project[] = [
     category: "AGENCY • DIGITAL PRODUCTS • SOFTWARE",
     description: "The official web application and agency website for Optenary, presenting software engineering services, project case studies, client solutions, technical capabilities, and automated inquiry workflows.",
     image: "/projects/optenary.png",
+    altText: "Optenary technology agency website",
     accentColor: "rgba(0, 201, 141, 0.15)",
     liveUrl: "https://optenary.tech/",
     githubUrl: "https://github.com/rathodaryan1",
@@ -138,6 +141,7 @@ export const projects: Project[] = [
     category: "B2B2C • SAAS & MOBILE APP",
     description: "An enterprise-grade property management ecosystem designed to streamline tenant lifecycles, automate digital rent collections, optimize bed allocation, and coordinate maintenance logistics for modern co-living providers.",
     image: "/projects/urban-nest.png",
+    altText: "Urban Nest property management dashboard",
     accentColor: "rgba(37, 99, 235, 0.15)",
     liveUrl: "https://urbannest1.vercel.app/",
     githubUrl: "https://github.com/rathodaryan1",
@@ -176,12 +180,56 @@ export const projects: Project[] = [
     }
   },
   {
+    slug: "shree-enterprise",
+    title: "Shree Enterprise",
+    subtitle: "Industrial Fire Protection B2B Portal",
+    category: "B2B • CORPORATE PLATFORM",
+    description: "A corporate digital platform for industrial fire protection solutions, featuring product and equipment presentation, safety information, compliance-focused content, and business enquiry workflows.",
+    image: "/projects/shree-enterprise.png",
+    altText: "Shree Enterprise fire safety website",
+    accentColor: "rgba(220, 38, 38, 0.15)",
+    liveUrl: "https://shreeenterprisebhavnagar.com/",
+    githubUrl: "https://github.com/rathodaryan1",
+    featured: false,
+    featureBadges: [
+      { icon: "flame", label: "Fire Safety Portal" },
+      { icon: "file-text", label: "Technical RFQ" },
+      { icon: "database", label: "Datasheet Hub" },
+      { icon: "smartphone", label: "Responsive Layout" }
+    ],
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Vercel"
+    ],
+    caseStudy: {
+      overview: "Shree Enterprise supplies heavy industrial fire safety equipment, suppression systems, and compliance safety services to industrial clients across Gujarat.",
+      challenge: "The client required a high-trust digital presence that clearly communicates safety standards, equipment specifications, regulatory compliance, and enables fast technical quote requests.",
+      solution: "Optenary designed and developed a modern corporate portal with clean industrial aesthetics, structured product cataloging, downloadable safety datasheets, and direct RFQ (Request for Quote) forms.",
+      keyFeatures: [
+        "Comprehensive Industrial Equipment Catalog",
+        "Compliance & Safety Datasheet Resource Hub",
+        "Interactive Request for Quote (RFQ) Workflow",
+        "Fully Responsive Industrial Mobile Layout",
+        "High-Performance Technical SEO Implementation"
+      ],
+      techStackDetailed: [
+        { name: "Next.js", category: "Web Framework" },
+        { name: "TypeScript", category: "Language" },
+        { name: "Tailwind CSS", category: "Design System" },
+        { name: "Vercel", category: "Global Edge Hosting" }
+      ]
+    }
+  },
+  {
     slug: "vishal-masala",
     title: "Vishal Masala",
     subtitle: "Headless E-Commerce Spices Engine",
     category: "B2C & B2B • HEADLESS COMMERCE",
     description: "A custom headless e-commerce architecture engineered for high-throughput spice retailing and bulk distribution, featuring instant product indexing, multi-faceted filtering, and seamless custom shipping calculations.",
     image: "/projects/vishal-masala.png",
+    altText: "Vishal Masala e-commerce website",
     accentColor: "rgba(234, 88, 12, 0.15)",
     liveUrl: "https://vishalmasala.vercel.app/",
     githubUrl: "https://github.com/rathodaryan1",
@@ -219,54 +267,13 @@ export const projects: Project[] = [
     }
   },
   {
-    slug: "shree-enterprise",
-    title: "Shree Enterprise",
-    subtitle: "Industrial Fire Protection B2B Portal",
-    category: "B2B • CORPORATE PLATFORM",
-    description: "A corporate digital platform for industrial fire protection solutions, featuring product and equipment presentation, safety information, compliance-focused content, and business enquiry workflows.",
-    image: "/projects/shree-enterprise.png",
-    accentColor: "rgba(220, 38, 38, 0.15)",
-    liveUrl: "https://shreeenterprisebhavnagar.com/",
-    githubUrl: "https://github.com/rathodaryan1",
-    featured: false,
-    featureBadges: [
-      { icon: "flame", label: "Fire Safety Portal" },
-      { icon: "file-text", label: "Technical RFQ" },
-      { icon: "database", label: "Datasheet Hub" },
-      { icon: "smartphone", label: "Responsive Layout" }
-    ],
-    technologies: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Vercel"
-    ],
-    caseStudy: {
-      overview: "Shree Enterprise supplies heavy industrial fire safety equipment, suppression systems, and compliance safety services to industrial clients across Gujarat.",
-      challenge: "The client required a high-trust digital presence that clearly communicates safety standards, equipment specifications, regulatory compliance, and enables fast technical quote requests.",
-      solution: "Optenary designed and developed a modern corporate portal with clean industrial aesthetics, structured product cataloging, downloadable safety datasheets, and direct RFQ (Request for Quote) forms.",
-      keyFeatures: [
-        "Comprehensive Industrial Equipment Catalog",
-        "Compliance & Safety Datasheet Resource Hub",
-        "Interactive Request for Quote (RFQ) Workflow",
-        "Fully Responsive Industrial Mobile Layout",
-        "High-Performance Technical SEO Implementation"
-      ],
-      techStackDetailed: [
-        { name: "Next.js", category: "Web Framework" },
-        { name: "TypeScript", category: "Language" },
-        { name: "Tailwind CSS", category: "Design System" },
-        { name: "Vercel", category: "Global Edge Hosting" }
-      ]
-    }
-  },
-  {
     slug: "laalo",
     title: "Laalo",
     subtitle: "Immersive Theatrical Campaign Experience",
     category: "MEDIA & ENTERTAINMENT • IMMERSIVE WEB DESIGN",
     description: "An experiential cinematic landing page designed to promote the theatrical launch of Laalo, featuring immersive visual storytelling and campaign-focused presentation.",
     image: "/projects/laalo.png",
+    altText: "Laalo theatrical campaign website",
     accentColor: "rgba(147, 51, 234, 0.15)",
     liveUrl: "https://laalo-movie.vercel.app/",
     githubUrl: "https://github.com/rathodaryan1",
@@ -280,25 +287,25 @@ export const projects: Project[] = [
     technologies: [
       "Next.js",
       "TypeScript",
-      "Framer Motion",
-      "Tailwind CSS"
+      "Tailwind CSS",
+      "Framer Motion"
     ],
     caseStudy: {
-      overview: "Laalo is a major theatrical production requiring an extraordinary digital campaign destination to generate excitement, showcase trailers, and direct audiences to ticket booking platforms.",
-      challenge: "The website had to capture the dramatic tone and visual atmosphere of the film while maintaining ultra-fast load times across mobile devices during peak promotional surges.",
-      solution: "We built an immersive motion-rich campaign landing page utilizing Framer Motion physics, ambient audio controls, video trailer integrations, and direct ticketing call-to-actions.",
+      overview: "Laalo is a critically acclaimed theatrical cinema production requiring an experiential digital landing destination to drive box office engagement and ticket conversions.",
+      challenge: "Standard promotional pages lack dynamic visual impact, failing to capture the cinematic atmosphere, character narratives, and musical score of the film.",
+      solution: "Optenary developed an immersive multimedia web experience with rich interactive storytelling, dynamic video backdrops, seamless ticket booking integrations, and motion design.",
       keyFeatures: [
-        "Cinematic Hero Experience with Trailer Embed",
-        "Interactive Cast & Character Storytelling Gallery",
-        "High-Performance Fluid Motion Graphics & Parallax",
-        "Direct Ticketing & Theater Locator Call-to-Actions",
-        "Optimized Social Sharing & OpenGraph Media Setup"
+        "Immersive Cinematic Video & Audio Showcase",
+        "Direct Box Office & Ticket Platform Integration",
+        "Interactive Cast & Character Storyboard",
+        "Fluid Framer Motion Animation Architecture",
+        "High-Performance Edge Deployment"
       ],
       techStackDetailed: [
-        { name: "Next.js", category: "Storefront / Landing Page" },
-        { name: "TypeScript", category: "Logic" },
-        { name: "Framer Motion", category: "Interactive Physics" },
-        { name: "Tailwind CSS", category: "Styling" }
+        { name: "Next.js", category: "Interactive Framework" },
+        { name: "TypeScript", category: "Language" },
+        { name: "Tailwind CSS", category: "Design System" },
+        { name: "Framer Motion", category: "Interactive Motion" }
       ]
     }
   }
