@@ -103,11 +103,11 @@
   padding: 1.5px;
   background: conic-gradient(
     from var(--border-angle, 0deg),
-    rgba(23, 23, 23, 0.12) 0%,
-    rgba(23, 23, 23, 0.12) 60%,
-    rgba(23, 23, 23, 0.4) 75%,
+    rgba(23, 23, 23, 0.15) 0%,
+    rgba(23, 23, 23, 0.15) 60%,
+    rgba(23, 23, 23, 0.5) 75%,
     rgba(23, 23, 23, 1) 90%,
-    rgba(23, 23, 23, 0.12) 100%
+    rgba(23, 23, 23, 0.15) 100%
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
@@ -120,11 +120,11 @@
 .dark .nav-loop-border::before {
   background: conic-gradient(
     from var(--border-angle, 0deg),
-    rgba(245, 245, 245, 0.12) 0%,
-    rgba(245, 245, 245, 0.12) 60%,
-    rgba(245, 245, 245, 0.4) 75%,
+    rgba(245, 245, 245, 0.15) 0%,
+    rgba(245, 245, 245, 0.15) 60%,
+    rgba(245, 245, 245, 0.5) 75%,
     rgba(245, 245, 245, 1) 90%,
-    rgba(245, 245, 245, 0.12) 100%
+    rgba(245, 245, 245, 0.15) 100%
   );
 }
 
@@ -144,33 +144,33 @@
 .card-loop-border::before {
   content: "";
   position: absolute;
-  inset: -1.5px;
-  border-radius: calc(1.5rem + 1.5px);
-  padding: 1.5px;
+  inset: -2px;
+  border-radius: calc(1.5rem + 2px);
+  padding: 2px;
   background: conic-gradient(
     from var(--border-angle, 0deg),
-    rgba(23, 23, 23, 0.12) 0%,
-    rgba(23, 23, 23, 0.12) 60%,
-    rgba(23, 23, 23, 0.4) 75%,
+    rgba(23, 23, 23, 0.15) 0%,
+    rgba(23, 23, 23, 0.15) 60%,
+    rgba(23, 23, 23, 0.5) 75%,
     rgba(23, 23, 23, 1) 90%,
-    rgba(23, 23, 23, 0.12) 100%
+    rgba(23, 23, 23, 0.15) 100%
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   animation: borderRotateLoop 4.5s linear infinite;
   pointer-events: none;
-  z-index: 2;
+  z-index: 10;
 }
 
 .dark .card-loop-border::before {
   background: conic-gradient(
     from var(--border-angle, 0deg),
-    rgba(245, 245, 245, 0.12) 0%,
-    rgba(245, 245, 245, 0.12) 60%,
-    rgba(245, 245, 245, 0.4) 75%,
+    rgba(245, 245, 245, 0.15) 0%,
+    rgba(245, 245, 245, 0.15) 60%,
+    rgba(245, 245, 245, 0.5) 75%,
     rgba(245, 245, 245, 1) 90%,
-    rgba(245, 245, 245, 0.12) 100%
+    rgba(245, 245, 245, 0.15) 100%
   );
 }
 
@@ -194,33 +194,33 @@
 .card-loop-border-sm::before {
   content: "";
   position: absolute;
-  inset: -1.5px;
-  border-radius: calc(1rem + 1.5px);
-  padding: 1.5px;
+  inset: -2px;
+  border-radius: calc(1rem + 2px);
+  padding: 2px;
   background: conic-gradient(
     from var(--border-angle, 0deg),
-    rgba(23, 23, 23, 0.12) 0%,
-    rgba(23, 23, 23, 0.12) 60%,
-    rgba(23, 23, 23, 0.4) 75%,
+    rgba(23, 23, 23, 0.15) 0%,
+    rgba(23, 23, 23, 0.15) 60%,
+    rgba(23, 23, 23, 0.5) 75%,
     rgba(23, 23, 23, 1) 90%,
-    rgba(23, 23, 23, 0.12) 100%
+    rgba(23, 23, 23, 0.15) 100%
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   animation: borderRotateLoop 4.5s linear infinite;
   pointer-events: none;
-  z-index: 2;
+  z-index: 10;
 }
 
 .dark .card-loop-border-sm::before {
   background: conic-gradient(
     from var(--border-angle, 0deg),
-    rgba(245, 245, 245, 0.12) 0%,
-    rgba(245, 245, 245, 0.12) 60%,
-    rgba(245, 245, 245, 0.4) 75%,
+    rgba(245, 245, 245, 0.15) 0%,
+    rgba(245, 245, 245, 0.15) 60%,
+    rgba(245, 245, 245, 0.5) 75%,
     rgba(245, 245, 245, 1) 90%,
-    rgba(245, 245, 245, 0.12) 100%
+    rgba(245, 245, 245, 0.15) 100%
   );
 }
 

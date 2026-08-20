@@ -50,11 +50,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4 }}
-      className="card-loop-border group rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col justify-between cursor-pointer"
+      className="card-loop-border group rounded-3xl flex flex-col justify-between cursor-pointer"
     >
       <div>
-        {/* Top Screenshot */}
-        <div className="relative w-full aspect-[16/10] overflow-hidden bg-neutral-900 border-b border-neutral-200/50 dark:border-neutral-800/50">
+        {/* Top Screenshot with rounded top matching card border */}
+        <div className="relative w-full aspect-[16/10] overflow-hidden bg-neutral-900 rounded-t-[1.4rem] border-b border-neutral-200/50 dark:border-neutral-800/50">
           <img
             src={project.image}
             alt={`${project.title} custom platform developed by Aryan Rathod`}
