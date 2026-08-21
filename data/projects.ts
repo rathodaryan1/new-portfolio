@@ -35,7 +35,7 @@ export const projects: Project[] = [
     title: "Mehta Dairy",
     subtitle: "Custom E-Commerce Platform for a Heritage Food Brand",
     category: "B2C • CUSTOM E-COMMERCE • FOOD & RETAIL",
-    description: "A custom digital commerce platform built for Mehta Dairy & Sweet Mart, bringing a long-established dairy and sweets business online with a modern shopping experience, online payments, customer accounts, delivery management, order tracking, WhatsApp ordering, and a powerful administration system.",
+    description: "A custom digital commerce platform engineered for Mehta Dairy & Sweet Mart, featuring mobile OTP auth, Razorpay online payments, dynamic delivery zone validation, and automated WhatsApp order notifications.",
     image: "/projects/mehta-dairy.png",
     altText: "Mehta Dairy custom e-commerce website",
     accentColor: "rgba(217, 119, 6, 0.15)",
@@ -45,8 +45,7 @@ export const projects: Project[] = [
     featureBadges: [
       { icon: "shopping-cart", label: "Custom E-Commerce" },
       { icon: "credit-card", label: "Razorpay Payments" },
-      { icon: "smartphone", label: "Responsive Design" },
-      { icon: "zap", label: "Performance Optimized" }
+      { icon: "zap", label: "Order Management" }
     ],
     technologies: [
       "Next.js",
@@ -95,7 +94,7 @@ export const projects: Project[] = [
     title: "Optenary",
     subtitle: "Official Technology & Digital Product Agency Platform",
     category: "AGENCY • DIGITAL PRODUCTS • SOFTWARE",
-    description: "The official web application and agency website for Optenary, presenting software engineering services, project case studies, client solutions, technical capabilities, and automated inquiry workflows.",
+    description: "The official web platform and client showcase for Optenary, built with Next.js App Router, responsive design systems, server-rendered case studies, and structured technical quotation workflows.",
     image: "/projects/optenary.png",
     altText: "Optenary technology agency website",
     accentColor: "rgba(0, 201, 141, 0.15)",
@@ -105,8 +104,7 @@ export const projects: Project[] = [
     featureBadges: [
       { icon: "bot", label: "AI Powered" },
       { icon: "zap", label: "Real-Time Features" },
-      { icon: "palette", label: "Neumorphic UI" },
-      { icon: "volume", label: "Audio Streams" }
+      { icon: "palette", label: "Automation" }
     ],
     technologies: [
       "Next.js",
@@ -139,7 +137,7 @@ export const projects: Project[] = [
     title: "Urban Nest",
     subtitle: "Enterprise Co-Living & Housing SaaS Platform",
     category: "B2B2C • SAAS & MOBILE APP",
-    description: "An enterprise-grade property management ecosystem designed to streamline tenant lifecycles, automate digital rent collections, optimize bed allocation, and coordinate maintenance logistics for modern co-living providers.",
+    description: "An enterprise co-living management system featuring bed occupancy matrices, automated tenant rent billing, digital lease management, and maintenance dispatch coordination.",
     image: "/projects/urban-nest.png",
     altText: "Urban Nest property management dashboard",
     accentColor: "rgba(37, 99, 235, 0.15)",
@@ -149,8 +147,7 @@ export const projects: Project[] = [
     featureBadges: [
       { icon: "pie-chart", label: "Analytics Dashboard" },
       { icon: "database", label: "Data Management" },
-      { icon: "smartphone", label: "Responsive UI" },
-      { icon: "moon", label: "Dark Mode" }
+      { icon: "smartphone", label: "Property Management" }
     ],
     technologies: [
       "Next.js",
@@ -184,7 +181,7 @@ export const projects: Project[] = [
     title: "Shree Enterprise",
     subtitle: "Industrial Fire Protection B2B Portal",
     category: "B2B • CORPORATE PLATFORM",
-    description: "A corporate digital platform for industrial fire protection solutions, featuring product and equipment presentation, safety information, compliance-focused content, and business enquiry workflows.",
+    description: "A corporate industrial platform for safety equipment and suppression systems, featuring structured compliance product cataloging and interactive Request for Quote (RFQ) workflows.",
     image: "/projects/shree-enterprise.png",
     altText: "Shree Enterprise fire safety website",
     accentColor: "rgba(220, 38, 38, 0.15)",
@@ -194,8 +191,7 @@ export const projects: Project[] = [
     featureBadges: [
       { icon: "flame", label: "Fire Safety Portal" },
       { icon: "file-text", label: "Technical RFQ" },
-      { icon: "database", label: "Datasheet Hub" },
-      { icon: "smartphone", label: "Responsive Layout" }
+      { icon: "database", label: "Product/Datasheet Hub" }
     ],
     technologies: [
       "Next.js",
@@ -227,7 +223,7 @@ export const projects: Project[] = [
     title: "Vishal Masala",
     subtitle: "Headless E-Commerce Spices Engine",
     category: "B2C & B2B • HEADLESS COMMERCE",
-    description: "A custom headless e-commerce architecture engineered for high-throughput spice retailing and bulk distribution, featuring instant product indexing, multi-faceted filtering, and seamless custom shipping calculations.",
+    description: "A custom headless e-commerce system built for regional spice distribution, engineered with sub-second product indexing, multi-weight variant pricing, and streamlined checkout.",
     image: "/projects/vishal-masala.png",
     altText: "Vishal Masala e-commerce website",
     accentColor: "rgba(234, 88, 12, 0.15)",
@@ -236,9 +232,8 @@ export const projects: Project[] = [
     featured: false,
     featureBadges: [
       { icon: "shopping-cart", label: "Headless Commerce" },
-      { icon: "zap", label: "Sub-Second Search" },
-      { icon: "smartphone", label: "Responsive Design" },
-      { icon: "moon", label: "Dark Mode" }
+      { icon: "zap", label: "Product Search" },
+      { icon: "smartphone", label: "Responsive Commerce" }
     ],
     technologies: [
       "Next.js",
@@ -271,7 +266,7 @@ export const projects: Project[] = [
     title: "Laalo",
     subtitle: "Immersive Theatrical Campaign Experience",
     category: "MEDIA & ENTERTAINMENT • IMMERSIVE WEB DESIGN",
-    description: "An experiential cinematic landing page designed to promote the theatrical launch of Laalo, featuring immersive visual storytelling and campaign-focused presentation.",
+    description: "An experiential cinematic landing destination for theatrical film promotion, combining motion design, audio-video integration, and direct box office ticket booking channels.",
     image: "/projects/laalo.png",
     altText: "Laalo theatrical campaign website",
     accentColor: "rgba(147, 51, 234, 0.15)",
@@ -281,8 +276,7 @@ export const projects: Project[] = [
     featureBadges: [
       { icon: "film", label: "Cinematic Motion" },
       { icon: "volume", label: "Audio & Video" },
-      { icon: "ticket", label: "Ticket Booking" },
-      { icon: "zap", label: "Fluid Animations" }
+      { icon: "ticket", label: "Ticket Booking" }
     ],
     technologies: [
       "Next.js",
