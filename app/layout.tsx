@@ -61,7 +61,7 @@ export const metadata: Metadata = {
       },
     ],
   },
-  manifest: "/manifest.webmanifest",
+
   openGraph: {
     title: siteConfig.title,
     description: siteConfig.description,
