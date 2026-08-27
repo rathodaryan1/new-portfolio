@@ -8,11 +8,11 @@ import { resumeUrl } from "@/data/social";
 import { Menu, X, FileText } from "lucide-react";
 
 const navItems = [
-  { label: "About", href: "/about", sectionId: "about" },
-  { label: "Skills", href: "/skills", sectionId: "skills" },
-  { label: "Work", href: "/work", sectionId: "work" },
-  { label: "Education", href: "/education", sectionId: "education" },
-  { label: "Contact", href: "/contact", sectionId: "contact" },
+  { label: "About", href: "/#about", sectionId: "about" },
+  { label: "Skills", href: "/#skills", sectionId: "skills" },
+  { label: "Work", href: "/#work", sectionId: "work" },
+  { label: "Education", href: "/#education", sectionId: "education" },
+  { label: "Contact", href: "/#contact", sectionId: "contact" },
 ];
 
 export function Navbar() {
@@ -61,9 +61,7 @@ export function Navbar() {
         {/* Center Nav Links (Desktop) */}
         <div className="hidden md:flex items-center space-x-1">
           {navItems.map((item) => {
-            const isRouteActive = pathname === item.href || (pathname === "/experience" && item.href === "/education");
-            const isScrollActive = pathname === "/" && activeSection === item.sectionId;
-            const isActive = isRouteActive || isScrollActive;
+            const isActive = pathname === "/" && activeSection === item.sectionId;
 
             return (
               <Link
@@ -112,9 +110,7 @@ export function Navbar() {
       {mobileMenuOpen && (
         <div className="md:hidden absolute top-16 left-3 right-3 rounded-3xl glass-pill border border-neutral-200 dark:border-neutral-800 p-4 shadow-2xl flex flex-col space-y-1.5 animate-slide-up">
           {navItems.map((item) => {
-            const isRouteActive = pathname === item.href || (pathname === "/experience" && item.href === "/education");
-            const isScrollActive = pathname === "/" && activeSection === item.sectionId;
-            const isActive = isRouteActive || isScrollActive;
+            const isActive = pathname === "/" && activeSection === item.sectionId;
 
             return (
               <Link
