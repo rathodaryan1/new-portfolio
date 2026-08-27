@@ -1,5 +1,5 @@
 {
-  "name": "Aryan Rathod — Developer Portfolio",
+  "name": "Aryan Rathod — Full Stack Developer & Founder of Optenary",
   "short_name": "Aryan Rathod",
   "icons": [
     {
@@ -13,7 +13,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#171717",
-  "background_color": "#FAFAF9",
+  "theme_color": "#0F0F0E",
+  "background_color": "#FBFBFA",
   "display": "standalone"
 }

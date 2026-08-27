@@ -16,29 +16,15 @@ export const viewport: Viewport = {
   ],
   width: "device-width",
   initialScale: 1,
+  colorScheme: "light dark",
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: siteConfig.title,
   description: siteConfig.description,
-  keywords: [
-    "Aryan Rathod",
-    "Rathod Aryan",
-    "Aryan Rathod developer",
-    "Aryan Rathod founder",
-    "Aryan Rathod Optenary",
-    "Aryan Rathod portfolio",
-    "Aryan Rathod computer engineering",
-    "Aryan Rathod web developer",
-    "Aryan Rathod GitHub",
-    "Aryan Rathod LinkedIn",
-    "Computer Engineering student",
-    "Next.js Developer",
-    "React Developer",
-    "TypeScript",
-    "Supabase"
-  ],
+  applicationName: "Aryan Rathod",
+  referrer: "strict-origin-when-cross-origin",
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,
   publisher: siteConfig.name,
@@ -71,12 +57,14 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     url: siteConfig.url,
     siteName: siteConfig.name,
-    locale: "en_IN",
+    locale: "en_US",
     type: "profile",
     images: [
       {
         url: "/og-image.jpg",
-        alt: `${siteConfig.name} — ${siteConfig.jobTitle}`,
+        width: 1200,
+        height: 630,
+        alt: "Aryan Rathod — Full Stack Developer & Founder of Optenary",
       },
     ],
   },
@@ -85,7 +73,12 @@ export const metadata: Metadata = {
     title: siteConfig.title,
     description: siteConfig.description,
     creator: "@_rathodaryan_",
-    images: ["/og-image.jpg"],
+    images: [
+      {
+        url: "/og-image.jpg",
+        alt: "Aryan Rathod — Full Stack Developer & Founder of Optenary",
+      },
+    ],
   },
   robots: {
     index: true,

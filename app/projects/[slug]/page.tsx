@@ -29,15 +29,11 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   return {
     title: `${project.title} — Case Study | Aryan Rathod`,
     description: project.description,
-    keywords: [
-      project.title,
-      `${project.title} case study`,
-      `Aryan Rathod ${project.title}`,
-      "Aryan Rathod projects",
-      "Aryan Rathod developer",
-      ...project.technologies,
-    ],
+    applicationName: "Aryan Rathod",
+    referrer: "strict-origin-when-cross-origin",
     authors: [{ name: siteConfig.name, url: siteConfig.url }],
+    creator: siteConfig.name,
+    publisher: siteConfig.name,
     alternates: {
       canonical: pageUrl,
     },
@@ -46,6 +42,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
       description: project.description,
       url: pageUrl,
       siteName: siteConfig.name,
+      locale: "en_US",
       type: "article",
       images: [
         {
@@ -61,7 +58,12 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
       title: `${project.title} — Case Study | Aryan Rathod`,
       description: project.description,
       creator: "@_rathodaryan_",
-      images: [project.image],
+      images: [
+        {
+          url: project.image,
+          alt: `${project.title} — Engineered by Aryan Rathod`,
+        },
+      ],
     },
   };
 }
@@ -72,23 +74,52 @@ function getProjectSchema(project: (typeof projects)[0], pageUrl: string) {
 
   return {
     "@context": "https://schema.org",
-    "@type": isSaaS ? "SoftwareApplication" : "WebApplication",
-    name: project.title,
-    applicationCategory: isSaaS
-      ? "BusinessApplication"
-      : isEcommerce
-      ? "ShoppingApplication"
-      : "BusinessApplication",
-    operatingSystem: "Web",
-    description: project.description,
-    url: pageUrl,
-    author: {
-      "@type": "Person",
-      "@id": `${siteConfig.url}/#person`,
-      name: siteConfig.name,
-      url: siteConfig.url,
-    },
-    image: `${siteConfig.url}${project.image}`,
+    "@graph": [
+      {
+        "@type": isSaaS ? "SoftwareApplication" : "WebApplication",
+        "@id": `${pageUrl}/#software`,
+        name: project.title,
+        applicationCategory: isSaaS
+          ? "BusinessApplication"
+          : isEcommerce
+          ? "ShoppingApplication"
+          : "BusinessApplication",
+        operatingSystem: "Web",
+        description: project.description,
+        url: pageUrl,
+        author: {
+          "@type": "Person",
+          "@id": `${siteConfig.url}/#person`,
+          name: siteConfig.name,
+          url: siteConfig.url,
+        },
+        image: `${siteConfig.url}${project.image}`,
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${pageUrl}/#breadcrumb`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: `${siteConfig.url}/`,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Projects",
+            item: `${siteConfig.url}/#work`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: project.title,
+            item: pageUrl,
+          },
+        ],
+      },
+    ],
   };
 }
 
