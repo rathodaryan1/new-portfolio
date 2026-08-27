@@ -7,11 +7,11 @@ import { resumeUrl } from "@/data/social";
 import { Menu, X, FileText } from "lucide-react";
 
 const navItems = [
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Work", href: "#work" },
-  { label: "Education", href: "#education" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/about" },
+  { label: "Skills", href: "/skills" },
+  { label: "Work", href: "/work" },
+  { label: "Education", href: "/education" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function Navbar() {

@@ -21,12 +21,12 @@ export const socialLinks = [
   },
   {
     name: "Email",
-    url: "mailto:aryan@optenary.tech",
+    url: "mailto:aryan@optenary.in",
     iconName: "Mail",
-    displayEmail: "aryan@optenary.tech"
+    displayEmail: "aryan@optenary.in"
   }
 ];
 
-export const contactEmail = "aryan@optenary.tech";
+export const contactEmail = "aryan@optenary.in";
 
 export const resumeUrl = "https://drive.google.com/file/d/1BVw1Dq_UC4rBKKbVqBDnP49MnonTjH4x/view?usp=sharing";

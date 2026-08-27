@@ -69,7 +69,7 @@ export function Contact() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
           {/* Email Card */}
           <a
-            href={`mailto:${emailSocial?.displayEmail || "aryan@optenary.tech"}`}
+            href={`mailto:${emailSocial?.displayEmail || "aryan@optenary.in"}`}
             className="card-loop-border p-5 rounded-2xl flex items-center gap-4 transition-all"
           >
             <div className="p-3 rounded-xl bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white shadow-xs">
@@ -80,7 +80,7 @@ export function Contact() {
                 EMAIL
               </span>
               <p className="text-sm font-bold text-neutral-900 dark:text-neutral-100">
-                {emailSocial?.displayEmail || "aryan@optenary.tech"}
+                {emailSocial?.displayEmail || "aryan@optenary.in"}
               </p>
             </div>
           </a>
