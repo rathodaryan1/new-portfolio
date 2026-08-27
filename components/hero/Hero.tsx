@@ -24,7 +24,7 @@ export function Hero() {
           <div className="relative w-32 h-32 sm:w-44 sm:h-44 rounded-full overflow-hidden border-4 border-white dark:border-neutral-800 shadow-xl bg-neutral-100 dark:bg-neutral-900">
             <Image
               src={personal.avatarUrl}
-              alt="Aryan Rathod — Full Stack Developer & Founder of Optenary"
+              alt="Aryan Rathod (Rathod Aryan) — Full Stack Developer & Founder of Optenary"
               fill
               sizes="(max-width: 640px) 128px, 176px"
               priority
@@ -59,13 +59,13 @@ export function Hero() {
 
         {/* Concise Statement: Who I am & What I Build */}
         <p className="text-sm sm:text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-2xl mb-6 sm:mb-8">
-          Computer Engineering student from Gujarat, India. I engineer responsive web applications, custom e-commerce platforms, SaaS systems, and digital solutions with clean architecture and modern user experiences.
+          Computer Engineering student and Full Stack Developer based in Ahmedabad, Gujarat. Founder of Optenary. Building high-performance web applications, custom e-commerce engines, and digital software products.
         </p>
 
         {/* Primary Call to Action Buttons */}
         <div className="flex flex-wrap items-center justify-center gap-3 mb-6 sm:mb-8">
           <Link
-            href="#work"
+            href="/#work"
             className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-bold bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-all shadow-sm"
           >
             <span>View My Work</span>

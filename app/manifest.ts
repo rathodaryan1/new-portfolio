@@ -2,10 +2,10 @@ import { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Aryan Rathod — Full Stack Developer & Founder",
+    name: "Aryan Rathod — Developer & Founder of Optenary",
     short_name: "Aryan Rathod",
     description:
-      "Official portfolio of Aryan Rathod, Full Stack Developer, Computer Engineering Student, and Founder of Optenary.",
+      "Official portfolio of Aryan Rathod, Developer, Computer Engineering Student, and Founder of Optenary.",
     start_url: "/",
     display: "standalone",
     background_color: "#FAFAF9",

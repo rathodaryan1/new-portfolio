@@ -98,7 +98,7 @@ export const projects: Project[] = [
     image: "/projects/optenary.png",
     altText: "Optenary technology agency website",
     accentColor: "rgba(0, 201, 141, 0.15)",
-    liveUrl: "https://optenary.tech/",
+    liveUrl: "https://optenary.in/",
     githubUrl: "https://github.com/rathodaryan1",
     featured: true,
     featureBadges: [

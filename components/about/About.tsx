@@ -27,10 +27,19 @@ export function About() {
         {/* Narrative Paragraphs */}
         <div className="space-y-4 sm:space-y-5 text-sm sm:text-base text-neutral-700 dark:text-neutral-300 leading-relaxed mb-8 sm:mb-10">
           <p>
-            I am <strong className="font-semibold text-neutral-900 dark:text-neutral-100">Aryan Rathod</strong>, a <strong className="font-semibold text-neutral-900 dark:text-neutral-100">Diploma Computer Engineering</strong> student and <strong className="font-semibold text-neutral-900 dark:text-neutral-100">Full Stack Developer</strong> based in Ahmedabad, Gujarat, India. I specialize in engineering clean, fast, and responsive web applications using Next.js, React, TypeScript, Tailwind CSS, Supabase, and PostgreSQL.
+            I am <strong className="font-semibold text-neutral-900 dark:text-neutral-100">Aryan Rathod</strong> (also written as <strong className="font-semibold text-neutral-900 dark:text-neutral-100">Rathod Aryan</strong>), a <strong className="font-semibold text-neutral-900 dark:text-neutral-100">Full Stack Developer</strong>, <strong className="font-semibold text-neutral-900 dark:text-neutral-100">Computer Engineering</strong> student, and the <strong className="font-semibold text-neutral-900 dark:text-neutral-100">Founder of Optenary</strong> based in Ahmedabad, Gujarat, India. I specialize in engineering clean, fast, and responsive web applications using Next.js, React, TypeScript, Tailwind CSS, Supabase, and PostgreSQL.
           </p>
           <p>
-            Alongside modern web development and algorithms, I am the Founder &amp; CEO of <strong className="font-semibold text-neutral-900 dark:text-neutral-100">Optenary</strong>, where I take ambitious ideas from concept to production by building custom software products, e-commerce engines, and AI automation workflows.
+            Alongside studying core computer engineering at R.C. Technical Institute, I founded{" "}
+            <a
+              href="https://optenary.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-neutral-900 dark:text-neutral-100 underline decoration-neutral-400 hover:decoration-neutral-900 dark:hover:decoration-neutral-100 underline-offset-4 transition-colors"
+            >
+              Optenary
+            </a>
+            , where I take ambitious ideas from concept to production by building custom software products, high-throughput e-commerce engines, and modern digital platforms.
           </p>
         </div>
 

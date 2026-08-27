@@ -64,7 +64,7 @@ export function OptenarySection() {
         {/* Clean Action Button */}
         <div>
           <a
-            href="https://optenary.tech"
+            href="https://optenary.in/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-bold bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-all shadow-md"

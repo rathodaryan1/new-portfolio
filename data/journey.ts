@@ -9,7 +9,7 @@ export interface JourneyItem {
 export const journeyTimeline: JourneyItem[] = [
   {
     year: "2024 — 2027",
-    title: "Diploma in Computer Engineering",
+    title: "Computer Engineering Diploma Studies",
     subtitle: "R.C. Technical Institute, Ahmedabad",
     description: "Pursuing core computer engineering education with focus on software engineering, data structures, database management systems, computer networks, and modern web application development."
   },
@@ -21,14 +21,14 @@ export const journeyTimeline: JourneyItem[] = [
   },
   {
     year: "2026",
-    title: "Founded Optenary",
-    subtitle: "Technology & Digital Product Agency",
+    title: "Founded Optenary Agency",
+    subtitle: "Technology & Digital Product Platform",
     description: "Established Optenary to design and build custom websites, e-commerce platforms, web applications, and AI automation systems for businesses looking for modern technical solutions."
   },
   {
     year: "2026",
-    title: "Client Platforms & Production Deployments",
-    subtitle: "Mehta Dairy, Shree Enterprise & SaaS Systems",
+    title: "Production Deployments & Client Platforms",
+    subtitle: "Mehta Dairy, Shree Enterprise & Custom SaaS",
     description: "Built and deployed major digital platforms including the full custom e-commerce engine for Mehta Dairy, industrial corporate portals, and custom SaaS platforms."
   }
 ];
