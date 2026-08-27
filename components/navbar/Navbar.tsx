@@ -2,28 +2,35 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ThemeToggle } from "./ThemeToggle";
 import { resumeUrl } from "@/data/social";
 import { Menu, X, FileText } from "lucide-react";
 
 const navItems = [
-  { label: "About", href: "/about" },
-  { label: "Skills", href: "/skills" },
-  { label: "Work", href: "/work" },
-  { label: "Education", href: "/education" },
-  { label: "Contact", href: "/contact" },
+  { label: "About", href: "/about", sectionId: "about" },
+  { label: "Skills", href: "/skills", sectionId: "skills" },
+  { label: "Work", href: "/work", sectionId: "work" },
+  { label: "Education", href: "/education", sectionId: "education" },
+  { label: "Contact", href: "/contact", sectionId: "contact" },
 ];
 
 export function Navbar() {
+  const pathname = usePathname();
   const [activeSection, setActiveSection] = useState("about");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    // Only run scroll spy on the homepage ("/")
+    if (pathname !== "/") {
+      return;
+    }
+
     const handleScroll = () => {
-      const sections = navItems.map((item) => item.href.substring(1));
+      const sectionIds = navItems.map((item) => item.sectionId);
       const scrollPosition = window.scrollY + 220;
 
-      for (const sectionId of [...sections].reverse()) {
+      for (const sectionId of [...sectionIds].reverse()) {
         const el = document.getElementById(sectionId);
         if (el) {
           const top = el.offsetTop;
@@ -38,14 +45,14 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll);
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex justify-center p-3 sm:p-6 transition-all duration-300">
       <nav className="w-full max-w-4xl rounded-full nav-loop-border px-4 sm:px-6 py-2.5 flex items-center justify-between shadow-lg shadow-neutral-950/5">
-        {/* Brand Name Logo matching Mobile Screenshot */}
+        {/* Brand Name Logo pointing to Homepage / */}
         <Link
-          href="#hero"
+          href="/"
           className="font-bold text-sm sm:text-base tracking-tight text-neutral-900 dark:text-neutral-100 hover:opacity-80 transition-opacity truncate max-w-[160px] sm:max-w-none"
         >
           Aryan Rathod
@@ -54,25 +61,27 @@ export function Navbar() {
         {/* Center Nav Links (Desktop) */}
         <div className="hidden md:flex items-center space-x-1">
           {navItems.map((item) => {
-            const sectionId = item.href.substring(1);
-            const isActive = activeSection === sectionId;
+            const isRouteActive = pathname === item.href || (pathname === "/experience" && item.href === "/education");
+            const isScrollActive = pathname === "/" && activeSection === item.sectionId;
+            const isActive = isRouteActive || isScrollActive;
 
             return (
-              <a
+              <Link
                 key={item.label}
                 href={item.href}
-                className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 ${isActive
+                className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 ${
+                  isActive
                     ? "bg-neutral-200/90 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100"
                     : "text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-100/60 dark:hover:bg-neutral-800/50"
-                  }`}
+                }`}
               >
                 {item.label}
-              </a>
+              </Link>
             );
           })}
         </div>
 
-        {/* Right Controls matching Mobile Screenshot (Theme Toggle + Menu Toggle) */}
+        {/* Right Controls (Resume + Theme Toggle + Mobile Menu Toggle) */}
         <div className="flex items-center space-x-1 sm:space-x-2">
           {/* Resume Button on Desktop */}
           <a
@@ -88,7 +97,7 @@ export function Navbar() {
           {/* Theme Toggle Button */}
           <ThemeToggle />
 
-          {/* Mobile Hamburger Menu Toggle matching Screenshot */}
+          {/* Mobile Hamburger Menu Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="md:hidden p-1.5 rounded-full text-neutral-700 dark:text-neutral-300 hover:bg-neutral-200/60 dark:hover:bg-neutral-800/60 transition-colors"
@@ -102,16 +111,26 @@ export function Navbar() {
       {/* Mobile Drawer Dropdown Menu */}
       {mobileMenuOpen && (
         <div className="md:hidden absolute top-16 left-3 right-3 rounded-3xl glass-pill border border-neutral-200 dark:border-neutral-800 p-4 shadow-2xl flex flex-col space-y-1.5 animate-slide-up">
-          {navItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              onClick={() => setMobileMenuOpen(false)}
-              className="px-4 py-2.5 rounded-2xl text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:bg-neutral-200/60 dark:hover:bg-neutral-800/60 transition-colors"
-            >
-              {item.label}
-            </a>
-          ))}
+          {navItems.map((item) => {
+            const isRouteActive = pathname === item.href || (pathname === "/experience" && item.href === "/education");
+            const isScrollActive = pathname === "/" && activeSection === item.sectionId;
+            const isActive = isRouteActive || isScrollActive;
+
+            return (
+              <Link
+                key={item.label}
+                href={item.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`px-4 py-2.5 rounded-2xl text-sm font-semibold transition-colors ${
+                  isActive
+                    ? "bg-neutral-200/90 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100 font-bold"
+                    : "text-neutral-700 dark:text-neutral-300 hover:bg-neutral-200/60 dark:hover:bg-neutral-800/60"
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
           <div className="pt-2 border-t border-neutral-200 dark:border-neutral-800">
             <a
               href={resumeUrl}

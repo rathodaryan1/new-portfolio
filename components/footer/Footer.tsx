@@ -16,7 +16,7 @@ export function Footer() {
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
         {/* Brand info */}
         <div>
-          <Link href="#hero" className="font-extrabold text-base text-neutral-900 dark:text-neutral-100">
+          <Link href="/" className="font-extrabold text-base text-neutral-900 dark:text-neutral-100">
             Aryan Rathod
           </Link>
           <p className="text-xs font-medium text-neutral-500 dark:text-neutral-400 mt-1">
