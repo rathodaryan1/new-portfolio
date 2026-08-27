@@ -24,19 +24,15 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   keywords: [
     "Aryan Rathod",
-    "Aryan Rathod developer",
-    "Aryan Rathod software developer",
-    "Aryan Rathod web developer",
-    "Aryan Rathod full stack developer",
-    "Aryan Rathod Ahmedabad",
-    "Aryan Rathod Gujarat",
-    "Aryan Rathod Optenary",
     "Aryan Rathod portfolio",
-    "Full Stack Developer",
-    "Next.js Developer",
-    "React Developer",
+    "Aryan Rathod developer",
+    "Computer Engineering student",
+    "web developer",
+    "Next.js",
+    "React",
     "TypeScript",
-    "Software Engineer Gujarat"
+    "Supabase",
+    "portfolio"
   ],
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,
@@ -75,9 +71,7 @@ export const metadata: Metadata = {
     type: "profile",
     images: [
       {
-        url: "/profile/aryan.png",
-        width: 800,
-        height: 800,
+        url: "/og-image.jpg",
         alt: `${siteConfig.name} — ${siteConfig.jobTitle}`,
       },
     ],
@@ -87,7 +81,7 @@ export const metadata: Metadata = {
     title: siteConfig.title,
     description: siteConfig.description,
     creator: "@_rathodaryan_",
-    images: ["/profile/aryan.png"],
+    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,

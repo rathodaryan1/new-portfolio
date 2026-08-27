@@ -105,12 +105,10 @@ export default function ProjectCaseStudyPage({ params }: ProjectPageProps) {
 
   return (
     <div className="min-h-screen bg-custom text-primary flex flex-col">
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </head>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
       <Navbar />
 

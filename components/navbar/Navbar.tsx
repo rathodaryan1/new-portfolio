@@ -61,11 +61,10 @@ export function Navbar() {
               <a
                 key={item.label}
                 href={item.href}
-                className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 ${
-                  isActive
+                className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 ${isActive
                     ? "bg-neutral-200/90 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100"
                     : "text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-100/60 dark:hover:bg-neutral-800/50"
-                }`}
+                  }`}
               >
                 {item.label}
               </a>
